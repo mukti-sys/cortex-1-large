@@ -1,0 +1,9 @@
+{
+  "stage": 1,
+  "status": "completed",
+  "epochs_trained": 4,
+  "final_loss": 28.379744758605955,
+  "checkpoint_file": "models\\stage1_silver_checkpoint\\laya_real_weights.pt",
+  "backbone": "answerdotai/ModernBERT-base",
+  "hidden_dim": 768
+}

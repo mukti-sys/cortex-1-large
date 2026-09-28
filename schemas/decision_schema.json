@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LayaDecisionSample",
+  "description": "Standardized schema for Laya non-autoregressive decision model training and evaluation samples.",
+  "type": "object",
+  "required": ["id", "domain", "tier", "state", "questions", "answers"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the sample (e.g., sec_cwe89_001, adr_arch_042)."
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "agent_autopilot",
+        "cybersecurity",
+        "fullstack_web",
+        "ai_ml_engineering",
+        "devops_cloud",
+        "systems_programming"
+      ],
+      "description": "The technical domain of the decision task."
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["tier_a_gold", "tier_b_silver", "tier_c_synthetic"],
+      "description": "Data curriculum tier (Gold = personal, Silver = public technical, Synthetic = paraphrased)."
+    },
+    "state": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Structured state containing code, diff, stack trace, or plan context.",
+          "properties": {
+            "title": { "type": "string" },
+            "context": { "type": "string" },
+            "file_path": { "type": "string" },
+            "language": { "type": "string" },
+            "code_snippet": { "type": "string" },
+            "diff": { "type": "string" },
+            "stack_trace": { "type": "string" },
+            "metadata": { "type": "object" }
+          },
+          "additionalProperties": true
+        },
+        {
+          "type": "string",
+          "description": "Raw text representation of the state (ticket, log, or prompt)."
+        }
+      ]
+    },
+    "questions": {
+      "type": "object",
+      "description": "Dictionary of typed questions to evaluate against the state in a single forward pass.",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "instructions"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choice", "score", "noul"],
+            "description": "Decision primitive: choice (classification), score (ordinal 0-4), noul (boolean)."
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Clear question instructions for the model."
+          },
+          "criteria": {
+            "type": "object",
+            "description": "Required for choice and score types. Maps option keys or score levels to descriptions.",
+            "additionalProperties": { "type": "string" }
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "choice" } } },
+            "then": { "required": ["criteria"] }
+          },
+          {
+            "if": { "properties": { "type": { "const": "score" } } },
+            "then": { "required": ["criteria"] }
+          }
+        ]
+      }
+    },
+    "answers": {
+      "type": "object",
+      "description": "Ground truth answers matching question keys exactly.",
+      "minProperties": 1,
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string", "description": "Option key for choice questions." },
+          { "type": "integer", "minimum": 0, "maximum": 4, "description": "Ordinal integer score for score questions." },
+          { "type": "boolean", "description": "Boolean value for noul questions." }
+        ]
+      }
+    }
+  }
+}

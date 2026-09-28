@@ -1,0 +1,28 @@
+# Laya Reference Training Configuration (ModernBERT-large)
+# Strictly optimized for NVIDIA RTX 5050 Laptop GPU (8GB GDDR7, sm_120 Blackwell)
+
+model:
+  encoder: "answerdotai/ModernBERT-large"
+  params: "421M"
+  precision: "bfloat16"
+  head_layers: 2
+  head_dropout: 0.1
+  gradient_checkpointing: true
+
+training:
+  train_data_pt: "data/marker_train.pt"
+  val_data_pt: "data/marker_val.pt"
+  output_dir: "models/laya_large_reference"
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 8 # Effective batch size = 16
+  learning_rate: 1.5e-5
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  epochs: 3
+  warmup_ratio: 0.1
+  eval_every_epoch: true
+
+scoring:
+  w_sph: 0.5   # Spherical score weight in strictly proper reward
+  w_rps: 1.0   # Ranked Probability Score weight for ordinal scoring
+  neutral_loss_weight: 1.0 # Single-lever rebalancing (no artificial loss weighting)

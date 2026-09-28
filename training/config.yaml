@@ -1,0 +1,54 @@
+# Laya Fine-Tuning Hyperparameters for RTX 5050 Laptop (8GB GDDR7)
+hardware:
+  device: "cuda"
+  gpu_name: "NVIDIA GeForce RTX 5050 Laptop GPU"
+  vram_limit_gb: 8
+  mixed_precision: "bf16" # Supported natively on Blackwell RTX 5050
+  gradient_checkpointing: true
+  empty_cache_frequency_steps: 50
+
+model:
+  base_checkpoint: "convaiinnovations/laya" # Or "answerdotai/ModernBERT-large"
+  fallback_backbone: "answerdotai/ModernBERT-large"
+  num_parameters: "421M"
+  max_seq_length: 1024
+
+stage1_curriculum:
+  description: "Broad Technical Competence on Tier B Silver"
+  train_data: "data/stage1_train_silver.jsonl"
+  eval_data: "data/eval/set1_generic.jsonl"
+  output_dir: "models/stage1_silver_checkpoint"
+  epochs: 4
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4 # Effective batch size = 32
+  learning_rate: 3.0e-5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  logging_steps: 10
+  save_total_limit: 2
+
+stage2_curriculum:
+  description: "Personal Preference Alignment on Tier A Gold + Tier C Synthetic"
+  init_checkpoint: "models/stage1_silver_checkpoint"
+  train_data: "data/stage2_train_personal.jsonl"
+  eval_data: "data/eval/set2_personal.jsonl" # Early stop against personal slice
+  output_dir: "models/laya_final_brain"
+  epochs: 3
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4
+  learning_rate: 1.0e-5 # Lower LR ensures personal signal isn't washed out
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  logging_steps: 20
+  save_total_limit: 2
+
+loss_weights:
+  choice_loss: 1.0     # Multi-class Cross-Entropy
+  score_loss: 1.2      # Ordinal distance-aware Cross-Entropy
+  noul_loss: 1.0       # Binary Cross-Entropy / Brier Score for honest probabilities
+
+calibration:
+  method: "temperature_scaling"
+  max_iter: 50
+  tolerance: 1.0e-4
+  target_ece_threshold: 0.05

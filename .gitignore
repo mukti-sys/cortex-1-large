@@ -1,0 +1,37 @@
+# Python environment & cache
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.whl
+
+# Downloaded Wheels & Large Binaries
+torch-*.whl
+
+# Model Weights (Publish via Hugging Face Hub / Git LFS)
+models/laya_large_reference/model.safetensors
+models/laya_large_reference/laya_large_weights.pt
+models/laya_large_reference/*backup*
+*.pt
+*.bin
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Evaluation Logs (Keep audit CSV, ignore debug dumps)
+evaluation/__pycache__/
+*.log
+
+# Private Datasets & Personal History (STRICTLY QUARANTINED - NEVER COMMIT)
+data/
+*.jsonl
+scratch/
+.system_generated/
+*.sqlite
+*.db
+

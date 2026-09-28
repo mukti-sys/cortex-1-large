@@ -1,0 +1,11 @@
+{
+  "encoder": "answerdotai/ModernBERT-large",
+  "head_layers": 2,
+  "n_act": 1,
+  "max_len": 512,
+  "head_max_len": 192,
+  "best_epoch": 2,
+  "val_balanced_accuracy": 1.0,
+  "val_sensitivity": 1.0,
+  "val_specificity": 1.0
+}
