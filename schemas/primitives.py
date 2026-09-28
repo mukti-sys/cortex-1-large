@@ -1,5 +1,5 @@
 """
-Pydantic primitives and type definitions for Laya Decision Engine.
+Pydantic primitives and type definitions for Cortex Decision Engine.
 Guarantees 100% schema consistency across all dataset tiers and pipeline scripts.
 """
 

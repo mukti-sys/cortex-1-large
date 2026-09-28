@@ -77,8 +77,9 @@ encoder = AutoModel.from_pretrained("answerdotai/ModernBERT-large", attn_impleme
 model = DecisionModel(encoder, head_layers=2)
 
 # Load Cortex-1 weights
-ckpt = torch.load("laya_large_weights.pt", map_location=device)
-model.load_state_dict(ckpt["model_state_dict"])
+from safetensors.torch import load_file
+state_dict = load_file("model.safetensors")
+model.load_state_dict(state_dict)
 model.to(device).eval()
 
 # Evaluate candidate options
@@ -111,4 +112,4 @@ for idx, opt in enumerate(options):
 ## Citation & License
 
 Licensed under the [Apache License 2.0](LICENSE).
-Built upon `answerdotai/ModernBERT-large` and the open-source Laya framework.
+Built upon `answerdotai/ModernBERT-large` and the open-source Cortex framework.

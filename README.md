@@ -79,15 +79,15 @@ Cortex-1 leverages **dynamic option marker-token pooling** (`torch.gather(h, 1, 
 
 ## 3. Data Integrity & Quarantine Policy
 
-> [!IMPORTANT]
-> **Data Privacy Guarantee:**
-> Personal user prompt histories, internal team repositories, and raw private JSONL splits are **strictly quarantined** in `.gitignore` and are not distributed in this repository. 
-> 
-> The model was trained and evaluated on 100% genuine open-source datasets:
-> * **AI / ML Engineering:** 600 real PyTorch issues from `yajatpawar/pytorch-issues-dataset-clean` (CUDA OOMs, tensor shape errors, gradient NaNs).
-> * **Full-Stack Diagnostics:** 707 real GitHub bug fixes from `princeton-nlp/SWE-bench_Verified` + `SWE-bench_Lite` (`django`, `flask`, `requests`, `sphinx`, `pytest`).
-> * **Developer PR Gating:** 1,414 real maintainer PR decisions (complex multi-file PRs requiring review vs isolated regression test additions).
-> * **Cybersecurity & AppSec:** 1,000 real CVE code pairs from `CyberNative/Code_Vulnerability_Security_DPO` (SQLi, XSS, SSRF, IDOR, Command Injection, Secret Leaks across 6 languages).
+### Data Privacy Guarantee
+
+Personal user prompt histories, internal team repositories, and raw private JSONL splits are **strictly quarantined** in `.gitignore` and are not distributed in this repository. 
+
+The model was trained and evaluated on 100% genuine open-source datasets:
+* **AI / ML Engineering:** 600 real PyTorch issues from `yajatpawar/pytorch-issues-dataset-clean` (CUDA OOMs, tensor shape errors, gradient NaNs).
+* **Full-Stack Diagnostics:** 707 real GitHub bug fixes from `princeton-nlp/SWE-bench_Verified` + `SWE-bench_Lite` (`django`, `flask`, `requests`, `sphinx`, `pytest`).
+* **Developer PR Gating:** 1,414 real maintainer PR decisions (complex multi-file PRs requiring review vs isolated regression test additions).
+* **Cybersecurity & AppSec:** 1,000 real CVE code pairs from `CyberNative/Code_Vulnerability_Security_DPO` (SQLi, XSS, SSRF, IDOR, Command Injection, Secret Leaks across 6 languages).
 
 All training splits underwent automated cryptographic MD5 deduplication: **0.00% overlap / zero leakage** between training and held-out evaluation sets.
 
@@ -107,8 +107,7 @@ Evaluated on 230 real-world SWE-bench and CyberNative CVE cases against the publ
 | **TypeSafe Jev (Published)** | 2,000 | **72.70%** | Published Metric | N/A | 0.00% (Baseline) |
 | **Cortex-1 Large (This Work)**| **690** | **82.32%** | **$[79.30\%, 84.98\%]$** | **0.2217** | **+9.62%** |
 
-> [!NOTE]
-> Even at the conservative lower bound of Cortex-1's 95% confidence interval (**79.30%**), the model maintains a statistically significant lead over TypeSafe Jev's published benchmark (**72.70%** with $p < 0.001$).
+Even at the conservative lower bound of Cortex-1's 95% confidence interval (**79.30%**), the model maintains a statistically significant lead over TypeSafe Jev's published benchmark (**72.70%** with $p < 0.001$).
 
 ### B. Developer Production PR Autopilot Gating Benchmark (Set 2: 426 Decisions)
 

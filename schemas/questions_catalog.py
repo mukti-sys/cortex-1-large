@@ -1,5 +1,5 @@
 """
-Catalog of standardized typed question templates for Laya Decision Engine.
+Catalog of standardized typed question templates for Cortex Decision Engine.
 Ensures uniform label distributions, clear instructions, and standardized criteria.
 """
 

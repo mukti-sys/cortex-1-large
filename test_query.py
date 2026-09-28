@@ -1,5 +1,5 @@
 """
-Interactive Query Runner for Laya System 1 Decision Engine.
+Interactive Query Runner for Cortex System 1 Decision Engine.
 Allows testing ANY arbitrary user question, plan, diff, or error trace on RTX 5050.
 """
 
@@ -12,19 +12,19 @@ root_dir = Path(__file__).resolve().parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer
 
 
 def test_question(query: str, query_type: str = "auto"):
     """
-    Test any query on Laya.
+    Test any query on Cortex-1.
     query_type: 'gating', 'security', 'aiml', 'diagnostics', or 'all'
     """
     print(f"\n{'='*70}")
     print(f"INPUT QUERY:\n{query}")
     print(f"{'='*70}")
 
-    engine = RealLayaDecisionServer()
+    engine = CortexDecisionServer()
 
     if query_type in ("gating", "all", "auto"):
         print("\n--- [1] AGENT AUTOPILOT GATING & RISK SCORING ---")

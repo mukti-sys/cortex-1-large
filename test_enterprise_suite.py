@@ -1,5 +1,5 @@
 """
-Enterprise Hard-Case Test Suite for Laya Decision Engine.
+Enterprise Hard-Case Test Suite for Cortex Decision Engine.
 Runs 4 challenging production-grade scenarios across:
 1. Distributed Architecture & Autonomous Gating
 2. Advanced AppSec / Cloud Metadata Exploitation
@@ -15,16 +15,16 @@ root_dir = Path(__file__).resolve().parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer
 
 
 def run_enterprise_eval():
     print(f"\n{'='*75}")
-    print("LAYA SYSTEM 1 DECISION ENGINE: ENTERPRISE STRESS TEST (RTX 5050)")
+    print("CORTEX SYSTEM 1 DECISION ENGINE: ENTERPRISE STRESS TEST (RTX 5050)")
     print("Zero-Shot Production Scenarios | Real GPU Forward Pass")
     print(f"{'='*75}\n")
 
-    engine = RealLayaDecisionServer()
+    engine = CortexDecisionServer()
 
     # --- SCENARIO 1: Distributed DB Sharding & Autopilot Gating ---
     p1 = (

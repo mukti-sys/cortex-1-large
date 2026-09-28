@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "LayaDecisionSample",
-  "description": "Standardized schema for Laya non-autoregressive decision model training and evaluation samples.",
+  "title": "CortexDecisionSample",
+  "description": "Standardized schema for Cortex non-autoregressive decision model training and evaluation samples.",
   "type": "object",
   "required": ["id", "domain", "tier", "state", "questions", "answers"],
   "additionalProperties": false,

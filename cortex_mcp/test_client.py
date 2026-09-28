@@ -1,10 +1,11 @@
 """
-Test Client for Laya Decision Engine MCP Server.
-Sends mock queries for:
+Test Client for Cortex Decision Engine MCP Server.
+Sends queries for:
 1. should_autopilot
 2. risk_score
 3. triage_security
 4. diagnose_root_cause
+5. pick_best_option
 And measures latency against the 35ms target.
 """
 
@@ -16,7 +17,7 @@ root_dir = Path(__file__).resolve().parent.parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer
 
 
 def run_tests():

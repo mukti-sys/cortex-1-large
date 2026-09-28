@@ -1,6 +1,6 @@
 """
-Registration utility for Laya Decision Engine MCP Server in Google Antigravity.
-Reads ~/.gemini/config/mcp_config.json, adds 'laya-brain', and saves backup.
+Registration utility for Cortex Decision Engine MCP Server in Google Antigravity.
+Reads ~/.gemini/config/mcp_config.json, adds 'cortex-brain', and saves backup.
 """
 
 import os
