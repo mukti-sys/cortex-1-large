@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="100%" height="100%">
+  <!-- Background: Deep Inky Obsidian Canvas (#030712) -->
+  <rect width="1280" height="480" fill="#030712"/>
+  <rect width="1278" height="478" x="1" y="1" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Ultra-subtle 40px grid lines for architectural structure -->
+  <g opacity="0.04" stroke="#94A3B8" stroke-width="1">
+    <pattern id="canvasGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none"/>
+    </pattern>
+    <rect width="1280" height="480" fill="url(#canvasGrid)"/>
+  </g>
+
+  <!-- ==================== LEFT COLUMN: BRAND & VALUE PROPOSITION ==================== -->
+  <g transform="translate(64, 60)">
+    <!-- Flat Vector Logo Mark (Scale 0.22) -->
+    <g transform="translate(0, 0) scale(0.22)">
+      <rect width="512" height="512" rx="100" fill="#0B101E"/>
+      <rect width="508" height="508" x="2" y="2" rx="98" fill="none" stroke="#1E293B" stroke-width="3"/>
+      <g transform="translate(256, 256)">
+        <path d="M 64,-136 L -48,-136 C -96,-136 -136,-96 -136,-48 L -136,0 L -84,0 L -84,-48 C -84,-68 -68,-84 -48,-84 L 64,-84 Z" fill="#F8FAFC"/>
+        <path d="M -136,0 L -136,48 C -136,96 -96,136 -48,136 L 64,136 L 64,84 L -48,84 C -68,84 -84,68 -84,48 L -84,0 Z" fill="#94A3B8"/>
+        <polygon points="-16,-48 48,0 -16,48 20,48 84,0 20,-48" fill="#38BDF8"/>
+      </g>
+    </g>
+
+    <!-- Product Title & Metadata -->
+    <g transform="translate(130, 26)">
+      <text x="0" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+            font-size="34" font-weight="700" letter-spacing="-0.5" fill="#F8FAFC">
+        cortex<tspan fill="#38BDF8">-1</tspan>
+      </text>
+      <text x="160" y="26" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" 
+            font-size="12" font-weight="500" fill="#64748B">
+        v1.0.0 · 421M encoder
+      </text>
+    </g>
+
+    <!-- Headline -->
+    <text x="0" y="152" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="18" font-weight="600" fill="#E2E8F0">
+      Sub-35ms Decision &amp; Option Engine for Coding Agents
+    </text>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="182" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="13.5" font-weight="400" fill="#94A3B8">
+      A non-autoregressive prefrontal cortex built on ModernBERT.
+    </text>
+    <text x="0" y="204" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="13.5" font-weight="400" fill="#94A3B8">
+      Evaluates candidate architectural solutions and PR gates in 1 pass.
+    </text>
+
+    <!-- Telemetry Metric Strip -->
+    <g transform="translate(0, 246)">
+      <!-- Metric 1 -->
+      <g>
+        <text x="0" y="0" font-family="ui-monospace, monospace" font-size="24" font-weight="700" fill="#34D399">~32.8ms</text>
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="500" fill="#64748B">Local Reflex Latency</text>
+      </g>
+      <!-- Metric 2 -->
+      <g transform="translate(140, 0)">
+        <text x="0" y="0" font-family="ui-monospace, monospace" font-size="24" font-weight="700" fill="#F8FAFC">100.0%</text>
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="500" fill="#64748B">Safety Gate Specificity</text>
+      </g>
+      <!-- Metric 3 -->
+      <g transform="translate(290, 0)">
+        <text x="0" y="0" font-family="ui-monospace, monospace" font-size="24" font-weight="700" fill="#38BDF8">+9.62%</text>
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="500" fill="#64748B">SWE-Bench vs Jev (82.3%)</text>
+      </g>
+    </g>
+
+    <!-- Framework Tags -->
+    <g transform="translate(0, 332)" font-family="ui-monospace, monospace" font-size="11.5" fill="#475569">
+      <text x="0" y="0">PYTORCH 2.11 · NVIDIA RTX 5050 · HUGGING FACE · NATIVE MCP SERVER</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== RIGHT COLUMN: AUTHENTIC PRODUCT INTERFACE ==================== -->
+  
+  <g transform="translate(560, 48)">
+    <!-- Terminal Chrome Card (Inky Dark Terminal with Hairline Border) -->
+    <rect x="0" y="0" width="656" height="384" rx="10" fill="#090E1A" stroke="#1E293B" stroke-width="1.2"/>
+    
+    <!-- Window Title Bar -->
+    <rect x="0" y="0" width="656" height="36" rx="10" fill="#0D1322"/>
+    <rect x="0" y="24" width="656" height="12" fill="#0D1322"/> <!-- square bottom corners of bar -->
+    <line x1="0" y1="36" x2="656" y2="36" stroke="#1E293B" stroke-width="1"/>
+
+    <!-- Terminal Window Controls (Subdued Minimalist Monochrome) -->
+    <circle cx="20" cy="18" r="4.5" fill="#334155"/>
+    <circle cx="36" cy="18" r="4.5" fill="#334155"/>
+    <circle cx="52" cy="18" r="4.5" fill="#334155"/>
+
+    <!-- Terminal Title -->
+    <text x="80" y="22" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="500" fill="#64748B">
+      agent-harness — cortex evaluate --candidates 3
+    </text>
+
+    <!-- Terminal Body Content (Real Developer Output) -->
+    <g transform="translate(24, 66)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" xml:space="preserve">
+      <!-- Command Input Line -->
+      <text x="0" y="0" fill="#38BDF8">❯ <tspan fill="#F8FAFC" font-weight="600">cortex pick</tspan> <tspan fill="#94A3B8">"Resolve PostgreSQL pool starvation under 50k req/s load"</tspan></text>
+
+      <!-- Latency & Model Header -->
+      <text x="0" y="28" fill="#64748B" font-size="11">[EVALUATION COMPLETE · 32.8ms SINGLE-PASS · DYNAMIC POOLING]</text>
+
+      <!-- Option 1: The Winner -->
+      <g transform="translate(0, 56)">
+        <rect x="-8" y="-14" width="624" height="48" rx="6" fill="#0F172A" stroke="#0284C7" stroke-width="1"/>
+        <text x="6" y="6" fill="#34D399" font-weight="700">● OPTION A  [RECOMMENDED · 78.4% CONFIDENCE]</text>
+        <text x="6" y="24" fill="#E2E8F0">  ↳ Deploy PgBouncer transaction-mode pool with pre-warmed connections.</text>
+      </g>
+
+      <!-- Option 2: Rejected -->
+      <g transform="translate(0, 118)">
+        <text x="0" y="6" fill="#64748B">○ OPTION B  [REJECTED · 14.1% CONFIDENCE]</text>
+        <text x="0" y="24" fill="#94A3B8">  ↳ Raise max_connections to 2000 on primary PostgreSQL node.</text>
+        <text x="0" y="40" fill="#EF4444" font-size="11">    Risk: Backend memory exhaustion and thread thrashing.</text>
+      </g>
+
+      <!-- Option 3: Rejected -->
+      <g transform="translate(0, 178)">
+        <text x="0" y="6" fill="#64748B">○ OPTION C  [REJECTED · 7.5% CONFIDENCE]</text>
+        <text x="0" y="24" fill="#94A3B8">  ↳ Scale stateless web workers horizontally without DB proxy.</text>
+      </g>
+
+      <!-- Divider -->
+      <line x1="-8" y1="228" x2="616" y2="228" stroke="#1E293B" stroke-width="1"/>
+
+      <!-- Safety Gate Summary -->
+      <g transform="translate(0, 252)">
+        <text x="0" y="0" fill="#94A3B8">AUTOPILOT SAFETY : <tspan fill="#34D399" font-weight="700">PROCEED (Risk Score: 1/4 · Low Risk)</tspan></text>
+        <text x="0" y="20" fill="#94A3B8">GATE VERDICT     : <tspan fill="#38BDF8" font-weight="600">ISOLATION APPROVED · READY FOR UNATTENDED RUN</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

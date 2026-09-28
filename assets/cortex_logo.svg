@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background: Pure Inky Charcoal (Linear / Raycast Dark Canvas) -->
+  <rect width="512" height="512" rx="100" fill="#090D16"/>
+  <rect width="508" height="508" x="2" y="2" rx="98" fill="none" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- 
+    CORTEX-1 MINIMALIST LOGO MARK:
+    A flat, mathematical 2D vector monogram.
+    Constructed on an exact 32px engineering grid:
+    - An outer geometric 'C' frame representing the cortex perimeter.
+    - An inner forward-pointing decision chevron representing candidate path selection.
+    Pure flat vector graphic - zero 3D diffusion noise, zero fake metallic bevels, zero neon blur.
+  -->
+  <g transform="translate(256, 256)">
+    <!-- Outer 'C' Monogram (Titanium White & Slate) -->
+    <!-- Upper Arm of 'C' -->
+    <path d="M 64,-136 
+             L -48,-136 
+             C -96,-136 -136,-96 -136,-48 
+             L -136,0 
+             L -84,0 
+             L -84,-48 
+             C -84,-68 -68,-84 -48,-84 
+             L 64,-84 
+             Z" 
+          fill="#F8FAFC"/>
+
+    <!-- Lower Arm of 'C' -->
+    <path d="M -136,0 
+             L -136,48 
+             C -136,96 -96,136 -48,136 
+             L 64,136 
+             L 64,84 
+             L -48,84 
+             C -68,84 -84,68 -84,48 
+             L -84,0 
+             Z" 
+          fill="#94A3B8"/>
+
+    <!-- Inner Decision Chevron (Selected Path Vector) -->
+    <!-- The forward arrow that gates and selects the optimal candidate -->
+    <polygon points="-16,-48 48,0 -16,48 20,48 84,0 20,-48" fill="#38BDF8"/>
+  </g>
+</svg>
