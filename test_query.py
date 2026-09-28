@@ -12,7 +12,7 @@ root_dir = Path(__file__).resolve().parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from laya_mcp.server import RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
 
 
 def test_question(query: str, query_type: str = "auto"):

@@ -21,7 +21,7 @@ Built on ModernBERT-Large (421M) with dynamic marker-token pooling. Trained to a
 
 ## The Problem: The "Self-Grading Homework" Trap
 
-When autonomous agents (powered by Claude 3.5 Sonnet, Gemini 1.5 Pro, or GPT-4) write code or execute shell commands, developers face two major bottlenecks:
+When autonomous coding agents write code or execute shell commands, developers face two major bottlenecks:
 
 1. **Confirmation Bias & Sycophancy:** Asking a generative LLM *"Is your own migration or shell command safe to run unsupervised?"* leads to severe bias. The model generated the plan, so it inherently believes its solution is correct—frequently approving destructive operations like dropping database columns or modifying authentication middleware.
 2. **Latency & Cost:** Making a 3-second API call and burning 4,000 prompt tokens on every micro-step just to answer a binary question (*"Should I proceed?"*) makes agentic loops slow, clunky, and expensive.
@@ -33,7 +33,7 @@ When autonomous agents (powered by Claude 3.5 Sonnet, Gemini 1.5 Pro, or GPT-4) 
 │                   THE TWO-BRAIN AGENTIC SYSTEM                         │
 ├────────────────────────────────────────────────────────────────────────┤
 │                                                                        │
-│   [ SYSTEM 2: Gemini / Claude ]             [ SYSTEM 1: Cortex-1 ]     │
+│   [ SYSTEM 2: Generative LLMs ]             [ SYSTEM 1: Cortex-1 ]     │
 │   • The "Writer / Actor"                    • The "Judge / Reflex"     │
 │   • 200B+ Parameters (Cloud API)            • 421M Parameters (RTX GPU)│
 │   • Latency: 2,000ms – 5,000ms              • Latency: ~32.8ms         │
@@ -153,7 +153,7 @@ Cortex-1 includes a local interactive terminal copilot where **Candidate Option 
 ```powershell
 # Activate environment & launch CLI
 .\.venv\Scripts\Activate.ps1
-python laya_chat.py
+python cortex_chat.py
 ```
 
 ### Example: Architecture Dilemma (Custom Options)
@@ -207,7 +207,7 @@ Cortex-1 exposes a local Model Context Protocol (MCP) server for **Google Antigr
   "mcpServers": {
     "cortex-1-brain": {
       "command": "python",
-      "args": ["-m", "laya_mcp.server"],
+      "args": ["-m", "cortex_mcp.server"],
       "cwd": "C:/path/to/cortex-1-repository"
     }
   }
@@ -236,4 +236,4 @@ The script will:
 ## 9. License
 
 This project is licensed under the [Apache License 2.0](LICENSE).
-Built upon `answerdotai/ModernBERT-large` and the open-source Laya architecture.
+Built upon `answerdotai/ModernBERT-large`.

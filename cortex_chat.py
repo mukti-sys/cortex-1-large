@@ -17,7 +17,7 @@ root_dir = Path(__file__).resolve().parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from laya_mcp.server import RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
 
 
 # Standard candidate option pools for zero-option inputs
@@ -188,7 +188,7 @@ def run_chat_session():
     print("  * Commands: '/wizard' for step-by-step | '/paste' for multi-line | '/exit' to quit.")
     print("-" * 76)
 
-    server = RealLayaDecisionServer()
+    server = CortexDecisionServer()
 
     print("\n[READY] Cortex-1 Large resident in GPU VRAM. Enter problem and options below:\n")
 

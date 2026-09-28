@@ -16,15 +16,15 @@ root_dir = Path(__file__).resolve().parent.parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from laya_mcp.server import RealLayaDecisionServer
+from cortex_mcp.server import CortexDecisionServer, RealLayaDecisionServer
 
 
 def run_tests():
     print(f"\n{'='*65}")
-    print("LAYA SYSTEM 1 DECISION ENGINE: REAL TRANSFORMER BENCHMARK")
+    print("CORTEX-1 DECISION ENGINE: REAL TRANSFORMER BENCHMARK")
     print(f"{'='*65}")
 
-    engine = RealLayaDecisionServer()
+    engine = CortexDecisionServer()
 
     # Benchmark 1: Pure Single-Decision Primitive (risk_score - SCORE)
     code_diff = "def update_user(id, data):\n-   db.execute('UPDATE users SET ...')\n+   db.table('users').where('id', id).update(data)"

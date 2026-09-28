@@ -13,7 +13,7 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
 
-def register_laya_mcp(dry_run: bool = False):
+def register_cortex_mcp(dry_run: bool = False):
     config_path = Path(os.path.expanduser(r"~\.gemini\config\mcp_config.json"))
     workspace_dir = Path(os.path.abspath(".")).resolve()
 
@@ -33,11 +33,11 @@ def register_laya_mcp(dry_run: bool = False):
     if "mcpServers" not in data:
         data["mcpServers"] = {}
 
-    laya_server_config = {
+    cortex_server_config = {
         "command": "python",
         "args": [
             "-m",
-            "laya_mcp.server"
+            "cortex_mcp.server"
         ],
         "cwd": str(workspace_dir),
         "env": {
@@ -46,26 +46,29 @@ def register_laya_mcp(dry_run: bool = False):
         }
     }
 
-    data["mcpServers"]["laya-brain"] = laya_server_config
+    data["mcpServers"]["cortex-brain"] = cortex_server_config
 
     print(f"\n{'='*60}")
-    print("REGISTERING LAYA MCP SERVER IN GOOGLE ANTIGRAVITY")
+    print("REGISTERING CORTEX-1 MCP SERVER IN GOOGLE ANTIGRAVITY")
     print(f"{'='*60}")
     print(f"Target Config:      {config_path}")
-    print(f"Server Name:        laya-brain")
-    print(f"Command:            python -m laya_mcp.server")
+    print(f"Server Name:        cortex-brain")
+    print(f"Command:            python -m cortex_mcp.server")
     print(f"Working Directory:  {workspace_dir}")
     print(f"{'='*60}\n")
 
     if not dry_run:
         with open(config_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
-        print("[SUCCESS] 'laya-brain' successfully registered in Antigravity MCP config!")
+        print("[SUCCESS] 'cortex-brain' successfully registered in Antigravity MCP config!")
     else:
         print("[DRY-RUN] Config preview:")
-        print(json.dumps(laya_server_config, indent=2))
+        print(json.dumps(cortex_server_config, indent=2))
+
+
+register_laya_mcp = register_cortex_mcp
 
 
 if __name__ == "__main__":
     is_dry = "--dry-run" in sys.argv
-    register_laya_mcp(dry_run=is_dry)
+    register_cortex_mcp(dry_run=is_dry)

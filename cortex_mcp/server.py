@@ -1,6 +1,6 @@
 """
-Real Local Laya Decision Engine MCP Server for Google Antigravity.
-Runs real ModernBERT-base transformer inference with multi-task decision heads.
+Real Local Cortex-1 Decision Engine MCP Server for Google Antigravity & Cursor.
+Runs real ModernBERT-large transformer inference with multi-task decision heads.
 Measures real neural network forward-pass latency.
 """
 
@@ -18,11 +18,11 @@ from transformers import AutoTokenizer, AutoModel
 from laya.common import DecisionModel, build_sequence, render_options, QTYPES
 
 
-class RealLayaDecisionServer:
+class CortexDecisionServer:
     def __init__(self, checkpoint_path: str = "models/laya_large_reference/laya_large_weights.pt"):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         dev_name = torch.cuda.get_device_name(0) if self.device.type == "cuda" else "CPU"
-        print(f"[INFO] Initializing Real Laya Decision Server on {self.device} ({dev_name})...")
+        print(f"[INFO] Initializing Real Cortex-1 Decision Server on {self.device} ({dev_name})...")
         print(f"[INFO] Loading ModernBERT-large (421M) reference backbone...")
         self.tokenizer = AutoTokenizer.from_pretrained("answerdotai/ModernBERT-large")
         enc = AutoModel.from_pretrained("answerdotai/ModernBERT-large", attn_implementation="sdpa")
@@ -314,8 +314,12 @@ class RealLayaDecisionServer:
         }
 
 
+# Backwards-compatible alias
+RealLayaDecisionServer = CortexDecisionServer
+
+
 def run_stdio_server():
-    server = RealLayaDecisionServer()
+    server = CortexDecisionServer()
 
     while True:
         try:
@@ -337,12 +341,12 @@ def run_stdio_server():
                     "id": req_id,
                     "result": {
                         "tools": [
-                            {"name": "should_autopilot", "description": "Laya System 1: Real ModernBERT gating decision."},
-                            {"name": "risk_score", "description": "Laya System 1: Real ModernBERT 0-4 risk scoring."},
-                            {"name": "triage_security", "description": "Laya System 1: Real ModernBERT CWE vulnerability classifier."},
-                            {"name": "diagnose_root_cause", "description": "Laya System 1: Real ModernBERT bug diagnosis."},
-                            {"name": "triage_aiml_error", "description": "Laya System 1: Real ModernBERT AI/ML & PyTorch error triage."},
-                            {"name": "pick_best_option", "description": "Laya System 1: Real ModernBERT dynamic option ranker & best choice picker."}
+                            {"name": "should_autopilot", "description": "Cortex-1: Real ModernBERT gating decision."},
+                            {"name": "risk_score", "description": "Cortex-1: Real ModernBERT 0-4 risk scoring."},
+                            {"name": "triage_security", "description": "Cortex-1: Real ModernBERT CWE vulnerability classifier."},
+                            {"name": "diagnose_root_cause", "description": "Cortex-1: Real ModernBERT bug diagnosis."},
+                            {"name": "triage_aiml_error", "description": "Cortex-1: Real ModernBERT AI/ML & PyTorch error triage."},
+                            {"name": "pick_best_option", "description": "Cortex-1: Real ModernBERT dynamic option ranker & best choice picker."}
                         ]
                     }
                 }
