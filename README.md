@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/cortex_banner.png" alt="Cortex-1 Large Hero Banner" width="100%" />
+<img src="assets/cortex_banner.jpg" alt="Cortex-1 Large Hero Banner" width="100%" />
 
 <br/><br/>
 
