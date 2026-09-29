@@ -8,7 +8,7 @@ Ingest Real Industry Datasets for Laya Decision Engine across ALL Coding Fields:
 Outputs:
 - data/upgraded_train.jsonl (Real multi-domain training split)
 - data/upgraded_val.jsonl (Quarantined real validation split)
-- data/eval/set1_generic_upgraded.jsonl (Held-out generic benchmark vs Jev across Cyber, AI/ML, Full-Stack)
+- data/eval/set1_generic_upgraded.jsonl (Held-out generic benchmark across Cyber, AI/ML, Full-Stack)
 - data/eval/set2_personal_upgraded.jsonl (Held-out production PR gating benchmark)
 """
 

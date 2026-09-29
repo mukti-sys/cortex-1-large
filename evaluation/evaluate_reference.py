@@ -3,7 +3,7 @@ Comprehensive Benchmark Evaluation Engine for Laya ModernBERT-large Reference Ar
 Evaluates frozen checkpoint across:
 1. data/stage2_val.jsonl (Quarantined Validation Split & Keyword-Free Check)
 2. data/eval/set2_personal.jsonl (Personal Held-Out Benchmark)
-3. data/eval/set1_generic.jsonl (Generic Technical Benchmark vs Jev)
+3. data/eval/set1_generic.jsonl (Generic Technical Benchmark)
 Uses dynamic marker-pooling (torch.gather at option [MASK] tokens) with zero static slot shortcuts.
 Reports Sensitivity, Specificity-on-False, Balanced Accuracy, and Confusion Matrices.
 """
@@ -237,13 +237,13 @@ def main():
     elif p_set2_legacy.exists():
         evaluate_dataset(model, tok, p_set2_legacy, "Set 2: Personal Held-Out Benchmark (104 Samples / 312 Decisions)", device)
 
-    # 3. Real Generic SWE & Security Benchmark vs Jev (Frozen Test)
+    # 3. Real Generic SWE & Security Benchmark (Frozen Test)
     p_set1_upgraded = Path("data/eval/set1_generic_upgraded.jsonl")
     p_set1_legacy = Path("data/eval/set1_generic.jsonl")
     if p_set1_upgraded.exists():
-        evaluate_dataset(model, tok, p_set1_upgraded, "Set 1: Real Industry SWE & Security Benchmark vs Jev (130 Samples / 390 Decisions)", device)
+        evaluate_dataset(model, tok, p_set1_upgraded, "Set 1: Real Industry SWE & Security Benchmark (130 Samples / 390 Decisions)", device)
     elif p_set1_legacy.exists():
-        evaluate_dataset(model, tok, p_set1_legacy, "Set 1: Generic Technical Benchmark vs Jev (100 Samples / 300 Decisions)", device)
+        evaluate_dataset(model, tok, p_set1_legacy, "Set 1: Generic Technical Benchmark (100 Samples / 300 Decisions)", device)
 
 
 if __name__ == "__main__":

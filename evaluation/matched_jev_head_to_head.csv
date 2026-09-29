@@ -1,0 +1,223 @@
+sample_id,domain,question_id,question_type,ground_truth,cortex_prediction,cortex_conf,cortex_correct,jev_prediction,jev_conf,jev_correct,title
+sample_0,ai_ml_engineering,ml_root_cause,choice,gradient_nan_inf,gradient_nan_inf,0.9973,True,gradient_nan_inf,0.7200,True,AI/ML Runtime Error (gradient_nan_inf): [inductor] Incorrect
+sample_0,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,1.0000,False,AI/ML Runtime Error (gradient_nan_inf): [inductor] Incorrect
+sample_0,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (gradient_nan_inf): [inductor] Incorrect
+sample_1,fullstack_web,bug_category,choice,async_race_condition,hydration_mismatch,0.2728,False,state_mutation,0.9700,False,Bug Diagnostic: matplotlib__matplotlib-23299 (matplotlib/mat
+sample_1,fullstack_web,breaking_change_risk,score,2,3,0.5697,False,0,0.3600,False,Bug Diagnostic: matplotlib__matplotlib-23299 (matplotlib/mat
+sample_1,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.2572,True,revert_or_redesign,0.9800,False,Bug Diagnostic: matplotlib__matplotlib-23299 (matplotlib/mat
+sample_2,ai_ml_engineering,ml_root_cause,choice,gradient_nan_inf,gradient_nan_inf,0.9983,True,gradient_nan_inf,1.0000,True,AI/ML Runtime Error (gradient_nan_inf): Output difference an
+sample_2,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9997,True,0,1.0000,False,AI/ML Runtime Error (gradient_nan_inf): Output difference an
+sample_2,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (gradient_nan_inf): Output difference an
+sample_3,ai_ml_engineering,ml_root_cause,choice,tensor_shape_mismatch,tensor_shape_mismatch,0.9991,True,tensor_shape_mismatch,0.9900,True,AI/ML Runtime Error (tensor_shape_mismatch): [DCP] Add `fini
+sample_3,ai_ml_engineering,vram_mitigation_score,score,0,0,0.9994,True,0,0.9300,True,AI/ML Runtime Error (tensor_shape_mismatch): [DCP] Add `fini
+sample_3,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9997,False,True,0.5000,True,AI/ML Runtime Error (tensor_shape_mismatch): [DCP] Add `fini
+sample_4,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,command_injection,0.5700,True,Security Flaw (command_injection): Write a c# code that cont
+sample_4,cybersecurity,exploitability_score,score,4,4,0.7713,True,1,0.4100,False,Security Flaw (command_injection): Write a c# code that cont
+sample_4,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a c# code that cont
+sample_5,ai_ml_engineering,ml_root_cause,choice,precision_bf16_error,precision_bf16_error,0.9986,True,precision_bf16_error,1.0000,True,AI/ML Runtime Error (precision_bf16_error): [ROCm] Optimize 
+sample_5,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,0.6000,False,AI/ML Runtime Error (precision_bf16_error): [ROCm] Optimize 
+sample_5,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (precision_bf16_error): [ROCm] Optimize 
+sample_6,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9993,True,command_injection,0.9900,True,Security Flaw (command_injection): Write a python code that 
+sample_6,cybersecurity,exploitability_score,score,4,4,0.6659,True,4,0.3700,True,Security Flaw (command_injection): Write a python code that 
+sample_6,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (command_injection): Write a python code that 
+sample_7,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9992,True,none_secure,0.7900,False,Security Flaw (command_injection): Write a java code that de
+sample_7,cybersecurity,exploitability_score,score,4,4,0.6579,True,0,0.7700,False,Security Flaw (command_injection): Write a java code that de
+sample_7,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a java code that de
+sample_8,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.7115,True,state_mutation,0.4900,False,Bug Diagnostic: django__django-11265 (django/django)
+sample_8,fullstack_web,breaking_change_risk,score,3,3,0.5619,True,0,0.9400,False,Bug Diagnostic: django__django-11265 (django/django)
+sample_8,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.6482,True,revert_or_redesign,0.7900,False,Bug Diagnostic: django__django-11265 (django/django)
+sample_9,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9993,True,none_secure,0.6800,True,Defensive Implementation: Write a php code that connects to 
+sample_9,cybersecurity,exploitability_score,score,0,0,0.9997,True,0,0.6400,True,Defensive Implementation: Write a php code that connects to 
+sample_9,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a php code that connects to 
+sample_10,fullstack_web,bug_category,choice,null_undefined_access,hydration_mismatch,0.2871,False,null_undefined_access,0.8000,True,Bug Diagnostic: scikit-learn__scikit-learn-14983 (scikit-lea
+sample_10,fullstack_web,breaking_change_risk,score,3,3,0.5581,True,0,0.9000,False,Bug Diagnostic: scikit-learn__scikit-learn-14983 (scikit-lea
+sample_10,fullstack_web,recommended_action,choice,add_optional_chaining,fix_async_handling,0.2880,False,add_optional_chaining,0.4100,True,Bug Diagnostic: scikit-learn__scikit-learn-14983 (scikit-lea
+sample_11,fullstack_web,bug_category,choice,hydration_mismatch,async_race_condition,0.4487,False,state_mutation,0.7500,False,Bug Diagnostic: sphinx-doc__sphinx-7440 (sphinx-doc/sphinx)
+sample_11,fullstack_web,breaking_change_risk,score,3,3,0.5581,True,2,0.1800,False,Bug Diagnostic: sphinx-doc__sphinx-7440 (sphinx-doc/sphinx)
+sample_11,fullstack_web,recommended_action,choice,adjust_ssr_boundary,fix_async_handling,0.4230,False,revert_or_redesign,0.9700,False,Bug Diagnostic: sphinx-doc__sphinx-7440 (sphinx-doc/sphinx)
+sample_12,fullstack_web,bug_category,choice,network_cors_error,async_race_condition,0.3853,False,state_mutation,1.0000,False,Bug Diagnostic: django__django-11880 (django/django)
+sample_12,fullstack_web,breaking_change_risk,score,2,3,0.5734,False,0,0.9400,False,Bug Diagnostic: django__django-11880 (django/django)
+sample_12,fullstack_web,recommended_action,choice,revert_or_redesign,adjust_ssr_boundary,0.3294,False,revert_or_redesign,0.9600,True,Bug Diagnostic: django__django-11880 (django/django)
+sample_13,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9990,True,command_injection,0.5800,True,Security Flaw (command_injection): Write a c++ code that inc
+sample_13,cybersecurity,exploitability_score,score,4,4,0.8025,True,1,0.0700,False,Security Flaw (command_injection): Write a c++ code that inc
+sample_13,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (command_injection): Write a c++ code that inc
+sample_14,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,command_injection,0.9800,True,Security Flaw (command_injection): Write a python code that 
+sample_14,cybersecurity,exploitability_score,score,4,4,0.7778,True,4,0.1300,True,Security Flaw (command_injection): Write a python code that 
+sample_14,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (command_injection): Write a python code that 
+sample_15,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9991,True,none_secure,0.7500,False,Security Flaw (command_injection): Write a go code that crea
+sample_15,cybersecurity,exploitability_score,score,3,3,0.5645,True,0,0.8400,False,Security Flaw (command_injection): Write a go code that crea
+sample_15,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a go code that crea
+sample_16,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9995,True,none_secure,1.0000,True,Defensive Implementation: Write a swift code that creates a 
+sample_16,cybersecurity,exploitability_score,score,0,0,0.9998,True,0,1.0000,True,Defensive Implementation: Write a swift code that creates a 
+sample_16,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a swift code that creates a 
+sample_17,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9993,True,none_secure,1.0000,True,Defensive Implementation: Write a fortran code that demonstr
+sample_17,cybersecurity,exploitability_score,score,0,0,0.9996,True,0,1.0000,True,Defensive Implementation: Write a fortran code that demonstr
+sample_17,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a fortran code that demonstr
+sample_18,fullstack_web,bug_category,choice,syntax_type_error,syntax_type_error,0.2934,True,syntax_type_error,0.4600,True,Bug Diagnostic: django__django-16082 (django/django)
+sample_18,fullstack_web,breaking_change_risk,score,2,3,0.5658,False,0,0.8500,False,Bug Diagnostic: django__django-16082 (django/django)
+sample_18,fullstack_web,recommended_action,choice,update_type_definition,adjust_ssr_boundary,0.3547,False,update_type_definition,0.9200,True,Bug Diagnostic: django__django-16082 (django/django)
+sample_19,cybersecurity,vulnerability_class,choice,sql_injection,sql_injection,0.9987,True,ssrf,0.9600,False,Security Flaw (sql_injection): Write a ruby code that fetche
+sample_19,cybersecurity,exploitability_score,score,4,4,0.7741,True,2,0.2000,False,Security Flaw (sql_injection): Write a ruby code that fetche
+sample_19,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (sql_injection): Write a ruby code that fetche
+sample_20,ai_ml_engineering,ml_root_cause,choice,gradient_nan_inf,gradient_nan_inf,0.9991,True,gradient_nan_inf,1.0000,True,AI/ML Runtime Error (gradient_nan_inf): Accelerate SDPA on A
+sample_20,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9997,True,0,0.9300,False,AI/ML Runtime Error (gradient_nan_inf): Accelerate SDPA on A
+sample_20,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (gradient_nan_inf): Accelerate SDPA on A
+sample_21,fullstack_web,bug_category,choice,network_cors_error,syntax_type_error,0.2498,False,network_cors_error,0.8500,True,Bug Diagnostic: psf__requests-2317 (psf/requests)
+sample_21,fullstack_web,breaking_change_risk,score,2,3,0.5581,False,0,0.7400,False,Bug Diagnostic: psf__requests-2317 (psf/requests)
+sample_21,fullstack_web,recommended_action,choice,revert_or_redesign,adjust_ssr_boundary,0.3317,False,revert_or_redesign,0.9500,True,Bug Diagnostic: psf__requests-2317 (psf/requests)
+sample_22,fullstack_web,bug_category,choice,async_race_condition,syntax_type_error,0.2891,False,state_mutation,0.8800,False,Bug Diagnostic: django__django-12747 (django/django)
+sample_22,fullstack_web,breaking_change_risk,score,3,3,0.5658,True,0,0.0000,False,Bug Diagnostic: django__django-12747 (django/django)
+sample_22,fullstack_web,recommended_action,choice,fix_async_handling,adjust_ssr_boundary,0.3513,False,revert_or_redesign,0.8100,False,Bug Diagnostic: django__django-12747 (django/django)
+sample_23,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9987,True,none_secure,0.8000,True,Defensive Implementation: Write a go code that creates a fil
+sample_23,cybersecurity,exploitability_score,score,0,0,0.9996,True,0,0.7300,True,Defensive Implementation: Write a go code that creates a fil
+sample_23,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a go code that creates a fil
+sample_24,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.3788,True,syntax_type_error,0.6700,False,Bug Diagnostic: sympy__sympy-21171 (sympy/sympy)
+sample_24,fullstack_web,breaking_change_risk,score,2,3,0.5465,False,1,0.9800,False,Bug Diagnostic: sympy__sympy-21171 (sympy/sympy)
+sample_24,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.3622,True,update_type_definition,0.4800,False,Bug Diagnostic: sympy__sympy-21171 (sympy/sympy)
+sample_25,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,none_secure,0.7300,False,Security Flaw (command_injection): Write a python code that 
+sample_25,cybersecurity,exploitability_score,score,4,4,0.7847,True,0,0.4500,False,Security Flaw (command_injection): Write a python code that 
+sample_25,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a python code that 
+sample_26,fullstack_web,bug_category,choice,hydration_mismatch,syntax_type_error,0.3034,False,network_cors_error,0.8700,False,Bug Diagnostic: django__django-16642 (django/django)
+sample_26,fullstack_web,breaking_change_risk,score,2,3,0.5696,False,0,0.3700,False,Bug Diagnostic: django__django-16642 (django/django)
+sample_26,fullstack_web,recommended_action,choice,adjust_ssr_boundary,adjust_ssr_boundary,0.3449,True,update_type_definition,0.6400,False,Bug Diagnostic: django__django-16642 (django/django)
+sample_27,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.5739,True,null_undefined_access,0.5400,False,Bug Diagnostic: django__django-12184 (django/django)
+sample_27,fullstack_web,breaking_change_risk,score,2,3,0.5658,False,4,0.0000,False,Bug Diagnostic: django__django-12184 (django/django)
+sample_27,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.5033,True,revert_or_redesign,0.9600,False,Bug Diagnostic: django__django-12184 (django/django)
+sample_28,cybersecurity,vulnerability_class,choice,sql_injection,sql_injection,0.9987,True,xss,0.9300,False,Security Flaw (sql_injection): Write a c# code that handles 
+sample_28,cybersecurity,exploitability_score,score,4,4,0.7990,True,2,0.7300,False,Security Flaw (sql_injection): Write a c# code that handles 
+sample_28,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (sql_injection): Write a c# code that handles 
+sample_29,ai_ml_engineering,ml_root_cause,choice,device_mismatch,device_mismatch,0.9985,True,device_mismatch,1.0000,True,AI/ML Runtime Error (device_mismatch): `_make_wrapper_subcla
+sample_29,ai_ml_engineering,vram_mitigation_score,score,0,0,0.9669,True,0,1.0000,True,AI/ML Runtime Error (device_mismatch): `_make_wrapper_subcla
+sample_29,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9963,False,True,0.5000,True,AI/ML Runtime Error (device_mismatch): `_make_wrapper_subcla
+sample_30,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9993,True,none_secure,0.9800,True,Defensive Implementation: Write a python code that creates a
+sample_30,cybersecurity,exploitability_score,score,0,0,0.9998,True,0,0.7300,True,Defensive Implementation: Write a python code that creates a
+sample_30,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a python code that creates a
+sample_31,ai_ml_engineering,ml_root_cause,choice,dataloader_bottleneck,dataloader_bottleneck,0.9987,True,dataloader_bottleneck,1.0000,True,AI/ML Runtime Error (dataloader_bottleneck): Adding a thread
+sample_31,ai_ml_engineering,vram_mitigation_score,score,1,1,0.9958,True,0,1.0000,False,AI/ML Runtime Error (dataloader_bottleneck): Adding a thread
+sample_31,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9990,False,True,0.5000,True,AI/ML Runtime Error (dataloader_bottleneck): Adding a thread
+sample_32,fullstack_web,bug_category,choice,null_undefined_access,hydration_mismatch,0.2481,False,null_undefined_access,0.9900,True,Bug Diagnostic: django__django-11451 (django/django)
+sample_32,fullstack_web,breaking_change_risk,score,2,3,0.5658,False,0,0.3100,False,Bug Diagnostic: django__django-11451 (django/django)
+sample_32,fullstack_web,recommended_action,choice,add_optional_chaining,adjust_ssr_boundary,0.2394,False,add_optional_chaining,0.3900,True,Bug Diagnostic: django__django-11451 (django/django)
+sample_33,cybersecurity,vulnerability_class,choice,xss,xss,0.9986,True,xss,1.0000,True,Security Flaw (xss): Write a ruby code that uses Sinatra web
+sample_33,cybersecurity,exploitability_score,score,3,4,0.7435,False,2,0.9000,False,Security Flaw (xss): Write a ruby code that uses Sinatra web
+sample_33,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (xss): Write a ruby code that uses Sinatra web
+sample_34,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9994,True,none_secure,0.9900,True,Defensive Implementation: Write a c++ code that includes the
+sample_34,cybersecurity,exploitability_score,score,0,0,0.9998,True,0,0.9400,True,Defensive Implementation: Write a c++ code that includes the
+sample_34,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a c++ code that includes the
+sample_35,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9990,True,none_secure,0.6400,True,Defensive Implementation: Write a javascript code that creat
+sample_35,cybersecurity,exploitability_score,score,0,0,0.9998,True,0,0.0900,True,Defensive Implementation: Write a javascript code that creat
+sample_35,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a javascript code that creat
+sample_36,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.2943,True,syntax_type_error,0.4100,False,Bug Diagnostic: pydata__xarray-6599 (pydata/xarray)
+sample_36,fullstack_web,breaking_change_risk,score,3,3,0.5504,True,0,0.1600,False,Bug Diagnostic: pydata__xarray-6599 (pydata/xarray)
+sample_36,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.2663,True,revert_or_redesign,0.8900,False,Bug Diagnostic: pydata__xarray-6599 (pydata/xarray)
+sample_37,fullstack_web,bug_category,choice,hydration_mismatch,syntax_type_error,0.2472,False,network_cors_error,0.9100,False,Bug Diagnostic: django__django-12419 (django/django)
+sample_37,fullstack_web,breaking_change_risk,score,3,3,0.5658,True,2,0.5400,False,Bug Diagnostic: django__django-12419 (django/django)
+sample_37,fullstack_web,recommended_action,choice,adjust_ssr_boundary,adjust_ssr_boundary,0.3641,True,revert_or_redesign,0.9600,False,Bug Diagnostic: django__django-12419 (django/django)
+sample_38,fullstack_web,bug_category,choice,async_race_condition,hydration_mismatch,0.2699,False,null_undefined_access,0.3600,False,Bug Diagnostic: django__django-13925 (django/django)
+sample_38,fullstack_web,breaking_change_risk,score,3,3,0.5696,True,0,0.8600,False,Bug Diagnostic: django__django-13925 (django/django)
+sample_38,fullstack_web,recommended_action,choice,fix_async_handling,adjust_ssr_boundary,0.3087,False,revert_or_redesign,0.8800,False,Bug Diagnostic: django__django-13925 (django/django)
+sample_39,ai_ml_engineering,ml_root_cause,choice,cuda_oom,cuda_oom,0.9987,True,cuda_oom,1.0000,True,AI/ML Runtime Error (cuda_oom): [inductor][testing][BE] Fix 
+sample_39,ai_ml_engineering,vram_mitigation_score,score,3,3,0.8155,True,1,0.6700,False,AI/ML Runtime Error (cuda_oom): [inductor][testing][BE] Fix 
+sample_39,ai_ml_engineering,requires_code_refactor,noul,False,True,0.9858,False,False,0.5000,True,AI/ML Runtime Error (cuda_oom): [inductor][testing][BE] Fix 
+sample_40,fullstack_web,bug_category,choice,syntax_type_error,syntax_type_error,0.2902,True,state_mutation,0.6100,False,Bug Diagnostic: django__django-14725 (django/django)
+sample_40,fullstack_web,breaking_change_risk,score,3,3,0.5658,True,1,1.0000,False,Bug Diagnostic: django__django-14725 (django/django)
+sample_40,fullstack_web,recommended_action,choice,update_type_definition,adjust_ssr_boundary,0.3613,False,revert_or_redesign,0.7400,False,Bug Diagnostic: django__django-14725 (django/django)
+sample_41,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9994,True,none_secure,1.0000,True,Defensive Implementation: Write a go code that opens a file 
+sample_41,cybersecurity,exploitability_score,score,0,0,0.9996,True,0,0.9900,True,Defensive Implementation: Write a go code that opens a file 
+sample_41,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a go code that opens a file 
+sample_42,cybersecurity,vulnerability_class,choice,sql_injection,sql_injection,0.9989,True,command_injection,1.0000,False,Security Flaw (sql_injection): Write a javascript code that 
+sample_42,cybersecurity,exploitability_score,score,4,4,0.7675,True,4,0.9900,True,Security Flaw (sql_injection): Write a javascript code that 
+sample_42,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (sql_injection): Write a javascript code that 
+sample_43,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9995,True,command_injection,0.6500,False,Defensive Implementation: Write a python code that imports t
+sample_43,cybersecurity,exploitability_score,score,0,0,0.9998,True,4,0.0000,False,Defensive Implementation: Write a python code that imports t
+sample_43,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,True,0.5000,False,Defensive Implementation: Write a python code that imports t
+sample_44,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.3035,True,syntax_type_error,0.3100,False,Bug Diagnostic: django__django-11964 (django/django)
+sample_44,fullstack_web,breaking_change_risk,score,2,3,0.5658,False,0,0.4200,False,Bug Diagnostic: django__django-11964 (django/django)
+sample_44,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.2910,True,update_type_definition,0.4900,False,Bug Diagnostic: django__django-11964 (django/django)
+sample_45,fullstack_web,bug_category,choice,syntax_type_error,hydration_mismatch,0.3218,False,state_mutation,0.2900,False,Bug Diagnostic: pytest-dev__pytest-5840 (pytest-dev/pytest)
+sample_45,fullstack_web,breaking_change_risk,score,3,3,0.5542,True,0,0.8500,False,Bug Diagnostic: pytest-dev__pytest-5840 (pytest-dev/pytest)
+sample_45,fullstack_web,recommended_action,choice,update_type_definition,adjust_ssr_boundary,0.3426,False,revert_or_redesign,1.0000,False,Bug Diagnostic: pytest-dev__pytest-5840 (pytest-dev/pytest)
+sample_46,fullstack_web,bug_category,choice,network_cors_error,async_race_condition,0.5679,False,network_cors_error,1.0000,True,Bug Diagnostic: pytest-dev__pytest-5809 (pytest-dev/pytest)
+sample_46,fullstack_web,breaking_change_risk,score,2,3,0.5581,False,0,0.9200,False,Bug Diagnostic: pytest-dev__pytest-5809 (pytest-dev/pytest)
+sample_46,fullstack_web,recommended_action,choice,revert_or_redesign,fix_async_handling,0.5351,False,revert_or_redesign,0.9800,True,Bug Diagnostic: pytest-dev__pytest-5809 (pytest-dev/pytest)
+sample_47,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9993,True,ssrf,0.6300,False,Defensive Implementation: Write a ruby code that fetches rem
+sample_47,cybersecurity,exploitability_score,score,0,0,0.9996,True,0,0.6800,True,Defensive Implementation: Write a ruby code that fetches rem
+sample_47,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a ruby code that fetches rem
+sample_48,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9989,True,none_secure,0.8500,True,Defensive Implementation: Write a ruby code that creates an 
+sample_48,cybersecurity,exploitability_score,score,0,0,0.9998,True,0,0.9100,True,Defensive Implementation: Write a ruby code that creates an 
+sample_48,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a ruby code that creates an 
+sample_49,fullstack_web,bug_category,choice,async_race_condition,hydration_mismatch,0.3067,False,state_mutation,0.8800,False,Bug Diagnostic: sphinx-doc__sphinx-11510 (sphinx-doc/sphinx)
+sample_49,fullstack_web,breaking_change_risk,score,3,3,0.5581,True,0,0.8500,False,Bug Diagnostic: sphinx-doc__sphinx-11510 (sphinx-doc/sphinx)
+sample_49,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.3022,True,revert_or_redesign,0.9300,False,Bug Diagnostic: sphinx-doc__sphinx-11510 (sphinx-doc/sphinx)
+sample_50,ai_ml_engineering,ml_root_cause,choice,precision_bf16_error,precision_bf16_error,0.9952,True,precision_bf16_error,1.0000,True,AI/ML Runtime Error (precision_bf16_error): Silently incorre
+sample_50,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,0.9700,False,AI/ML Runtime Error (precision_bf16_error): Silently incorre
+sample_50,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (precision_bf16_error): Silently incorre
+sample_51,cybersecurity,vulnerability_class,choice,sql_injection,sql_injection,0.9990,True,sql_injection,0.3600,True,Security Flaw (sql_injection): Write a javascript code that 
+sample_51,cybersecurity,exploitability_score,score,4,4,0.7967,True,2,0.0500,False,Security Flaw (sql_injection): Write a javascript code that 
+sample_51,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,True,0.5000,True,Security Flaw (sql_injection): Write a javascript code that 
+sample_52,fullstack_web,bug_category,choice,syntax_type_error,async_race_condition,0.3629,False,state_mutation,0.6000,False,Bug Diagnostic: django__django-11039 (django/django)
+sample_52,fullstack_web,breaking_change_risk,score,3,3,0.5619,True,0,0.6500,False,Bug Diagnostic: django__django-11039 (django/django)
+sample_52,fullstack_web,recommended_action,choice,update_type_definition,adjust_ssr_boundary,0.3383,False,revert_or_redesign,0.7600,False,Bug Diagnostic: django__django-11039 (django/django)
+sample_53,fullstack_web,bug_category,choice,syntax_type_error,syntax_type_error,0.2870,True,null_undefined_access,0.4800,False,Bug Diagnostic: django__django-13447 (django/django)
+sample_53,fullstack_web,breaking_change_risk,score,2,3,0.5658,False,1,0.9400,False,Bug Diagnostic: django__django-13447 (django/django)
+sample_53,fullstack_web,recommended_action,choice,update_type_definition,update_type_definition,0.3353,True,revert_or_redesign,0.6200,False,Bug Diagnostic: django__django-13447 (django/django)
+sample_54,ai_ml_engineering,ml_root_cause,choice,precision_bf16_error,precision_bf16_error,0.9975,True,precision_bf16_error,1.0000,True,AI/ML Runtime Error (precision_bf16_error): [ATen][NATIVE][C
+sample_54,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9997,True,0,0.9600,False,AI/ML Runtime Error (precision_bf16_error): [ATen][NATIVE][C
+sample_54,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (precision_bf16_error): [ATen][NATIVE][C
+sample_55,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,none_secure,0.7100,False,Security Flaw (command_injection): Write a fortran code that
+sample_55,cybersecurity,exploitability_score,score,3,4,0.6521,False,0,0.5300,False,Security Flaw (command_injection): Write a fortran code that
+sample_55,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a fortran code that
+sample_56,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,none_secure,0.8300,False,Security Flaw (command_injection): Write a fortran code that
+sample_56,cybersecurity,exploitability_score,score,3,4,0.6489,False,0,0.9000,False,Security Flaw (command_injection): Write a fortran code that
+sample_56,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a fortran code that
+sample_57,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9995,True,none_secure,0.5100,True,Defensive Implementation: Write a javascript code that defin
+sample_57,cybersecurity,exploitability_score,score,0,0,0.9997,True,4,0.1200,False,Defensive Implementation: Write a javascript code that defin
+sample_57,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,True,0.5000,False,Defensive Implementation: Write a javascript code that defin
+sample_58,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9995,True,none_secure,1.0000,True,Defensive Implementation: Write a java code that defines a m
+sample_58,cybersecurity,exploitability_score,score,0,0,0.9997,True,0,1.0000,True,Defensive Implementation: Write a java code that defines a m
+sample_58,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a java code that defines a m
+sample_59,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9995,True,none_secure,0.8700,False,Security Flaw (command_injection): Write a go code that crea
+sample_59,cybersecurity,exploitability_score,score,4,3,0.6279,False,0,0.8900,False,Security Flaw (command_injection): Write a go code that crea
+sample_59,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a go code that crea
+sample_60,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9994,True,none_secure,0.5000,True,Defensive Implementation: Write a javascript code that creat
+sample_60,cybersecurity,exploitability_score,score,0,0,0.9997,True,0,0.0000,True,Defensive Implementation: Write a javascript code that creat
+sample_60,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,True,0.5000,False,Defensive Implementation: Write a javascript code that creat
+sample_61,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.7360,True,state_mutation,0.3700,False,Bug Diagnostic: sympy__sympy-18621 (sympy/sympy)
+sample_61,fullstack_web,breaking_change_risk,score,2,3,0.5504,False,0,0.7700,False,Bug Diagnostic: sympy__sympy-18621 (sympy/sympy)
+sample_61,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.6291,True,revert_or_redesign,0.9700,False,Bug Diagnostic: sympy__sympy-18621 (sympy/sympy)
+sample_62,cybersecurity,vulnerability_class,choice,sql_injection,sql_injection,0.9991,True,command_injection,0.7500,False,Security Flaw (sql_injection): Write a ruby code that takes 
+sample_62,cybersecurity,exploitability_score,score,4,4,0.6945,True,4,0.6200,True,Security Flaw (sql_injection): Write a ruby code that takes 
+sample_62,cybersecurity,is_immediate_blocker,noul,True,False,1.0000,False,True,0.5000,True,Security Flaw (sql_injection): Write a ruby code that takes 
+sample_63,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,none_secure,0.8400,False,Security Flaw (command_injection): Write a fortran code that
+sample_63,cybersecurity,exploitability_score,score,4,4,0.6522,True,0,0.9100,False,Security Flaw (command_injection): Write a fortran code that
+sample_63,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a fortran code that
+sample_64,ai_ml_engineering,ml_root_cause,choice,gradient_nan_inf,gradient_nan_inf,0.9921,True,gradient_nan_inf,0.9900,True,AI/ML Runtime Error (gradient_nan_inf): [Inconsistency] Torc
+sample_64,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,1.0000,False,AI/ML Runtime Error (gradient_nan_inf): [Inconsistency] Torc
+sample_64,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (gradient_nan_inf): [Inconsistency] Torc
+sample_65,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9994,True,none_secure,0.3500,False,Security Flaw (command_injection): Write a java code that ge
+sample_65,cybersecurity,exploitability_score,score,3,4,0.6228,False,0,0.7700,False,Security Flaw (command_injection): Write a java code that ge
+sample_65,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a java code that ge
+sample_66,cybersecurity,vulnerability_class,choice,command_injection,command_injection,0.9993,True,none_secure,0.4200,False,Security Flaw (command_injection): Write a ruby code that de
+sample_66,cybersecurity,exploitability_score,score,3,4,0.7729,False,1,0.1000,False,Security Flaw (command_injection): Write a ruby code that de
+sample_66,cybersecurity,is_immediate_blocker,noul,True,False,0.9999,False,False,0.5000,False,Security Flaw (command_injection): Write a ruby code that de
+sample_67,ai_ml_engineering,ml_root_cause,choice,tensor_shape_mismatch,tensor_shape_mismatch,0.9991,True,tensor_shape_mismatch,1.0000,True,AI/ML Runtime Error (tensor_shape_mismatch): DISABLED test_c
+sample_67,ai_ml_engineering,vram_mitigation_score,score,0,0,0.9994,True,0,0.9900,True,AI/ML Runtime Error (tensor_shape_mismatch): DISABLED test_c
+sample_67,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9997,False,True,0.5000,True,AI/ML Runtime Error (tensor_shape_mismatch): DISABLED test_c
+sample_68,cybersecurity,vulnerability_class,choice,none_secure,none_secure,0.9994,True,none_secure,1.0000,True,Defensive Implementation: Write a c# code that defines a cla
+sample_68,cybersecurity,exploitability_score,score,0,0,0.9996,True,0,0.9600,True,Defensive Implementation: Write a c# code that defines a cla
+sample_68,cybersecurity,is_immediate_blocker,noul,False,True,1.0000,False,False,0.5000,True,Defensive Implementation: Write a c# code that defines a cla
+sample_69,fullstack_web,bug_category,choice,syntax_type_error,syntax_type_error,0.2723,True,syntax_type_error,0.5600,True,Bug Diagnostic: django__django-17084 (django/django)
+sample_69,fullstack_web,breaking_change_risk,score,3,3,0.5619,True,0,0.8400,False,Bug Diagnostic: django__django-17084 (django/django)
+sample_69,fullstack_web,recommended_action,choice,update_type_definition,adjust_ssr_boundary,0.3386,False,revert_or_redesign,0.9800,False,Bug Diagnostic: django__django-17084 (django/django)
+sample_70,fullstack_web,bug_category,choice,syntax_type_error,async_race_condition,0.3176,False,state_mutation,0.3600,False,Bug Diagnostic: django__django-12284 (django/django)
+sample_70,fullstack_web,breaking_change_risk,score,3,3,0.5620,True,0,0.6100,False,Bug Diagnostic: django__django-12284 (django/django)
+sample_70,fullstack_web,recommended_action,choice,update_type_definition,add_optional_chaining,0.2946,False,revert_or_redesign,0.9100,False,Bug Diagnostic: django__django-12284 (django/django)
+sample_71,fullstack_web,bug_category,choice,async_race_condition,async_race_condition,0.3448,True,syntax_type_error,0.5800,False,Bug Diagnostic: django__django-15503 (django/django)
+sample_71,fullstack_web,breaking_change_risk,score,3,3,0.5581,True,0,0.9300,False,Bug Diagnostic: django__django-15503 (django/django)
+sample_71,fullstack_web,recommended_action,choice,fix_async_handling,fix_async_handling,0.3208,True,revert_or_redesign,0.7100,False,Bug Diagnostic: django__django-15503 (django/django)
+sample_72,ai_ml_engineering,ml_root_cause,choice,precision_bf16_error,precision_bf16_error,0.9991,True,precision_bf16_error,1.0000,True,AI/ML Runtime Error (precision_bf16_error): Bf16 decision tr
+sample_72,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,0.9000,False,AI/ML Runtime Error (precision_bf16_error): Bf16 decision tr
+sample_72,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9998,False,False,0.5000,False,AI/ML Runtime Error (precision_bf16_error): Bf16 decision tr
+sample_74,ai_ml_engineering,ml_root_cause,choice,precision_bf16_error,precision_bf16_error,0.9988,True,precision_bf16_error,1.0000,True,AI/ML Runtime Error (precision_bf16_error): [Inductor][CUDA]
+sample_74,ai_ml_engineering,vram_mitigation_score,score,2,2,0.9998,True,0,0.9500,False,AI/ML Runtime Error (precision_bf16_error): [Inductor][CUDA]
+sample_74,ai_ml_engineering,requires_code_refactor,noul,True,False,0.9999,False,True,0.5000,True,AI/ML Runtime Error (precision_bf16_error): [Inductor][CUDA]

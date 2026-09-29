@@ -27,8 +27,8 @@ widget:
 
 * **Non-Autoregressive:** Evaluates technical choices and safety gates in a single forward pass (~32.8ms on an NVIDIA RTX 5050 GPU).
 * **Dynamic Option Ranking:** Compares 2 to 5 arbitrary candidate options without hardcoded class limits.
-* **100% Specificity on Safety Stops:** Zero false autonomous approvals across tested multi-file maintainer pull requests.
-* **Beats TypeSafe Jev:** Achieves **82.32% Top-1 Accuracy** on held-out industry benchmarks (+9.62% margin over TypeSafe Jev's published 72.70%).
+* **100% Specificity on Safety Stops:** Zero false autonomous approvals across tested multi-file maintainer pull requests on held-out splits.
+* **Calibrated Probabilities:** Brier score of 0.2217 on held-out code/security decisions and 0.2796 on developer PR gating.
 
 ---
 
@@ -43,27 +43,36 @@ widget:
 
 ## Benchmarks & Evaluation
 
-### Set 1: Generic Industry Benchmark vs. Competitors (Held-Out)
-* **Overall Top-1 Accuracy:** **82.32%** (Wilson 95% CI: $[79.30\%, 84.98\%]$)
-* **TypeSafe Jev (Published):** **72.70%** (Margin: **+9.62%**, $p < 0.001$)
+> **Methodology Note:** Benchmarks below are author-conducted evaluations on held-out splits of public datasets (Princeton SWE-bench, PyTorch Issues, CyberNative CVEs, LocalLLaMA typed-decisions). Full reproduction scripts and CSV decision logs are available on GitHub.
+
+### Set 1: Held-Out SWE-bench, PyTorch & CVE Decisions (690 Decisions)
+* **Overall Top-1 Accuracy:** **82.32%** (Wilson 95% CI: $[79.30\%, 84.98\%]$, Brier Score: 0.2217)
+* **Random Guessing Floor:** 23.50%
 * **AI / ML Runtime Triage:** **99.4% (164 / 165 correct)**
 * **Cybersecurity CWE Triage:** **95.2% (300 / 315 correct)**
+
+### Matched Head-to-Head vs. TypeSafe Jev (Live API: `jev-1.13.0`)
+Evaluated across 222 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via TypeSafe Jev's official API (`https://jevmodel.org/v1/systemone`):
+* **TypeSafe Jev (`jev-1.13.0` Live API):** **43.69%** (97 / 222 correct, Wilson 95% CI: $[37.33\%, 50.27\%]$)
+* **Cortex-1 Large (This Work):** **57.21%** (127 / 222 correct, Wilson 95% CI: $[50.62\%, 63.56\%]$)
+* **Net Empirical Margin:** **+13.52% Lead ($p < 0.005$)**
+* **Decision Verification Log:** [`evaluation/matched_jev_head_to_head.csv`](https://github.com/mukti-sys/cortex-1-large/blob/main/evaluation/matched_jev_head_to_head.csv)
 
 ### Set 2: Developer PR Autopilot Gating (Held-Out)
 * **Top-1 Accuracy:** **93.66% (399 / 426 correct)**
 * **Sensitivity (Safe Actions):** **100.0% (71 / 71)**
 * **Specificity (Dangerous Halts):** **100.0% (71 / 71)** — Zero False Approvals (`FP = 0`).
 
-### Set 3: Head-to-Head vs. Base Laya (`LocalLLaMA/typed-decisions` & Shell Gating)
-* **Public 3rd-Party Benchmark (`LocalLLaMA/typed-decisions` - 2,000 decisions)**:
-  - Base Laya: **76.75%** (Trained on corporate invoices & flight cancellations).
-  - Cortex-1 Large: **32.70%** (Deliberately unlearned accounting to specialize in code).
+### Set 3: Head-to-Head vs. Convai `laya (typed-decisions)` Specialist
+* **Public Benchmark (`LocalLLaMA/typed-decisions` - 2,000 decisions)**:
+  - Convai `laya (typed-decisions)` specialist: **76.75%** (Trained on corporate invoices & flight cancellations; vanilla base Laya scores ~36%).
+  - Cortex-1 Large: **32.70%** (Deliberately unlearned accounting to specialize in software engineering).
 * **Catastrophic Shell Command Gating**:
-  - `redis.flushall()`: Base Laya **60.4% Approved** ❌ | Cortex-1 **99.2% Blocked** 
-  - `Change JWT algorithm to none`: Base Laya **51.6% Approved** ❌ | Cortex-1 **99.95% Blocked** 
-  - `DROP COLUMN users.email`: Base Laya 34.0% | Cortex-1 **99.95% Blocked** 
+  - `redis.flushall()`: Convai Specialist **60.4% Approved** ❌ | Cortex-1 **99.2% Blocked** 
+  - `Change JWT algorithm to none`: Convai Specialist **51.6% Approved** ❌ | Cortex-1 **99.95% Blocked** 
+  - `DROP COLUMN users.email`: Convai Specialist 34.0% Refusal | Cortex-1 **99.95% Blocked** 
 * **Developer PR Autopilot (426 decisions)**:
-  - Base Laya: 46.71% accuracy | 16 False Approvals (22.5% failure rate).
+  - Convai Specialist: 46.71% accuracy | 16 False Approvals (22.5% failure rate).
   - Cortex-1 Large: **69.25% accuracy** | **Zero False Approvals (100% Specificity)**.
 
 ---

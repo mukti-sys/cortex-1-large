@@ -2,7 +2,7 @@
 Real Benchmark Evaluation Engine for Laya Decision Model.
 Performs real tokenization, real ModernBERT forward pass, and compares
 actual model predictions against ground truth labels on:
-- Set 1: Generic Technical Benchmark (100 samples, vs Jev)
+- Set 1: Generic Technical Benchmark (100 samples)
 - Set 2: Personal Held-Out Benchmark (104 samples)
 Computes real Top-1 Accuracy, real Brier Score, and per-domain accuracy breakdown.
 """
@@ -222,6 +222,6 @@ if __name__ == "__main__":
         ckpt = Path("models/laya_final_brain/laya_real_weights.pt")
 
         if p_set1.exists():
-            run_real_evaluation(p_set1, ckpt, "Set 1: Generic Technical Benchmark (100 Samples vs Jev)")
+            run_real_evaluation(p_set1, ckpt, "Set 1: Generic Technical Benchmark (100 Samples)")
         if p_set2.exists():
             run_real_evaluation(p_set2, ckpt, "Set 2: Personal Held-Out Benchmark (104 Samples)")

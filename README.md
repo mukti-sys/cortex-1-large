@@ -8,14 +8,21 @@
 [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-mukti--sys%2Fcortex--1--large-FFD21E?style=flat-square)](https://huggingface.co/mukti-sys/cortex-1-large)
 [![Hardware](https://img.shields.io/badge/Hardware-NVIDIA%20RTX%205050%20(sm__120)-76B900?style=flat-square&logo=nvidia)](https://nvidia.com)
 [![Latency](https://img.shields.io/badge/Latency-~32.8ms-00E5FF?style=flat-square)](https://github.com/)
-[![Benchmark Margin](https://img.shields.io/badge/vs%20TypeSafe%20Jev-+9.62%25%20(82.32%25)-34D399?style=flat-square)](INDEPENDENT_BENCHMARK_REPORT.md)
-[![Community Audit](https://img.shields.io/badge/Head--to--Head-Base%20Laya%20vs%20Cortex--1-8B5CF6?style=flat-square)](COMMUNITY_BENCHMARKS_AUDIT.md)
-[![Safety Specificity](https://img.shields.io/badge/Safety%20Specificity-100.0%25%20(Zero%20FP)-10B981?style=flat-square)](COMMUNITY_BENCHMARKS_AUDIT.md)
+[![vs TypeSafe Jev (Live API)](https://img.shields.io/badge/vs%20TypeSafe%20Jev%20(Live%20API)-+13.52%25%20Lead-10B981?style=flat-square)](BENCHMARK_REPORT.md#matched-head-to-head-vs-typesafe-jev-live-api-jev-1130)
+[![Benchmark Report](https://img.shields.io/badge/Benchmark%20Report-Held--Out%20SWE%20%26%20CVE-34D399?style=flat-square)](BENCHMARK_REPORT.md)
+[![Head-to-Head](https://img.shields.io/badge/Head--to--Head-Laya%20Specialist%20vs%20Cortex--1-8B5CF6?style=flat-square)](HEAD_TO_HEAD_EVALUATION.md)
+[![Safety Specificity](https://img.shields.io/badge/PR%20Gating%20Specificity-100.0%25%20(Held--Out)-10B981?style=flat-square)](HEAD_TO_HEAD_EVALUATION.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)](LICENSE)
 
 **A sub-35ms Non-Autoregressive System 1 Decision & Option-Ranking Engine for Autonomous Coding Agents.**
 
 Built on ModernBERT-Large (421M) with dynamic marker-token pooling. Trained to act as an on-device prefrontal cortex for agent harnesses like Google Antigravity, Cursor, and custom dev tools.
+
+> **Empirical Matched Benchmark (Live API Head-to-Head):**  
+> Evaluated side-by-side against **TypeSafe Jev (`jev-1.13.0`)** across 222 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via Jev's official API (`https://jevmodel.org/v1/systemone`):  
+> • **TypeSafe Jev (`jev-1.13.0` Live API):** `43.69%` (97 / 222)  
+> • **Cortex-1 Large (This Work):** `57.21%` (127 / 222) — **+13.52% Empirical Lead ($p < 0.005$)**  
+> • **Decision Audit Log:** [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) | **Reproduction:** `python evaluation/run_matched_jev_benchmark.py`
 
 </div>
 
@@ -168,21 +175,31 @@ All training splits underwent automated cryptographic MD5 deduplication: **0.00%
 
 ---
 
-## 4. Empirical Evaluation: Internal vs. External Benchmarks
+## 4. Empirical Evaluation & Held-Out Benchmarks
 
-We report both **quarantined internal validation** (held out during training) and **frozen third-party external benchmarks**.
+> **Methodology Note:** All benchmarks reported below are author-executed self-evaluations conducted on held-out test splits of public datasets (Princeton SWE-bench, PyTorch Issues, CyberNative CVEs, and LocalLLaMA typed-decisions). They are NOT an audit performed by an external independent commercial testing lab. All code, datasets, and decision-level CSV logs are published in this repository for full independent reproduction.
 
-### A. Third-Party Generic Industry Benchmark vs. TypeSafe Jev (Set 1: 690 Decisions)
+### A. Held-Out SWE-bench & CyberNative Benchmark (Set 1: 690 Decisions)
 
-Evaluated on 230 real-world SWE-bench and CyberNative CVE cases against the published benchmark of TypeSafe Jev (closed-source decision model):
+Evaluated across 230 held-out cases (690 decisions) from Princeton SWE-bench and CyberNative CVEs:
 
-| Decision Model / Baseline | Decisions | Accuracy | Wilson 95% Confidence Interval | Brier Score | Margin vs. Jev |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Random Guessing Floor** | 1,116 | **23.50%** | $[21.05\%, 26.11\%]$ | 0.8120 | -49.20% |
-| **TypeSafe Jev (Published)** | 2,000 | **72.70%** | Published Metric | N/A | 0.00% (Baseline) |
-| **Cortex-1 Large (This Work)**| **690** | **82.32%** | **$[79.30\%, 84.98\%]$** | **0.2217** | **+9.62%** |
+| Evaluation Tier / Baseline | Decisions | Top-1 Accuracy | Wilson 95% Confidence Interval | Brier Score |
+| :--- | :---: | :---: | :---: | :---: |
+| **Random Guessing Floor** | 1,116 | **23.50%** | $[21.05\%, 26.11\%]$ | 0.8120 |
+| **Majority-Class Baseline** | 690 | **38.20%** | $[34.60\%, 41.92\%]$ | 0.5840 |
+| **Cortex-1 Large (This Work)**| **690** | **82.32%** | **$[79.30\%, 84.98\%]$** | **0.2217** |
 
-Even at the conservative lower bound of Cortex-1's 95% confidence interval (**79.30%**), the model maintains a statistically significant lead over TypeSafe Jev's published benchmark (**72.70%** with $p < 0.001$).
+#### Matched Head-to-Head vs. TypeSafe Jev (Live API: `jev-1.13.0`)
+To provide a strictly matched comparison against closed-source alternatives, both models were evaluated on identical held-out SWE-bench and CyberNative CVE items queried live via TypeSafe Jev's official API (`https://jevmodel.org/v1/systemone`):
+
+| Evaluated System | Decisions | Top-1 Accuracy | 95% Wilson Conf. Interval | Source / Artifact |
+| :--- | :---: | :---: | :---: | :---: |
+| **TypeSafe Jev (`jev-1.13.0` Live API)** | 222 | **43.69%** (97 / 222) | $[37.33\%, 50.27\%]$ | Official Remote API |
+| **Cortex-1 Large (This Work)** | 222 | **57.21%** (127 / 222) | $[50.62\%, 63.56\%]$ | Local Inference |
+| **Net Lead on Matched Decisions** | 222 | **+13.52%** | $p < 0.005$ | [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) |
+
+* Detailed decision audit logs: [`evaluation/independent_audit_log.csv`](evaluation/independent_audit_log.csv) and [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv)
+* Reproduction script: `python evaluation/run_matched_jev_benchmark.py`
 
 ### B. Developer Production PR Autopilot Gating Benchmark (Set 2: 426 Decisions)
 
@@ -191,7 +208,7 @@ Evaluated on maintainer PRs to determine whether code changes should run autonom
 * **Overall Accuracy:** **93.66% (399 / 426 correct)**
 * **Sensitivity (Safe Test Additions):** **100.00% (71 / 71)** — Safe test additions execute without blocking.
 * **Specificity (Critical Stop Rate):** **100.00% (71 / 71)** — 100% of complex multi-file architectural fixes were halted for review.
-* **Confusion Matrix:** `TP=71, FP=0, TN=71, FN=0` (**Zero False Approvals**).
+* **Confusion Matrix:** `TP=71, FP=0, TN=71, FN=0` (**Zero False Approvals on this held-out set**).
 
 ### C. Quarantined Internal Validation Benchmark (`data/upgraded_val.jsonl` - 1,110 Decisions)
 
@@ -203,19 +220,19 @@ Held-out validation slice tracked across training epochs:
 * **Cybersecurity CWE Triage:** **94.33% (283 / 300)**
 * **PR Autopilot Gating:** **92.67% (392 / 423)**
 
-### D. Public Third-Party Head-to-Head: Base Laya vs. Cortex-1 Large
+### D. Public Domain Head-to-Head: Convai `laya (typed-decisions)` vs. Cortex-1 Large
 
-Full audit methodology, metrics, and reproduction instructions are documented in **[`COMMUNITY_BENCHMARKS_AUDIT.md`](COMMUNITY_BENCHMARKS_AUDIT.md)**:
+Detailed comparisons, metrics, and scripts are documented in **[`HEAD_TO_HEAD_EVALUATION.md`](HEAD_TO_HEAD_EVALUATION.md)**:
 
-1. **Independent Public Benchmark (`LocalLLaMA/typed-decisions` - 2,000 Decisions)**:
-   - **Base Laya (`convaiinnovations/laya`)**: **76.75%** (1,535/2,000) — *Trained directly on corporate invoices & airline customer tickets.*
+1. **Public Domain Benchmark (`LocalLLaMA/typed-decisions` - 2,000 Decisions)**:
+   - **Convai `laya` (subfolder="typed-decisions")**: **76.75%** (1,535/2,000) — *Convai's specialist checkpoint trained directly on corporate invoices & customer tickets (vanilla base Laya scores ~36%).*
    - **Cortex-1 Large (`mukti-sys/cortex-1-large`)**: **32.70%** (654/2,000) — *Completely unlearned invoice accounting to specialize in code.*
 2. **Developer PR Autopilot Gating (426 Decisions)**:
-   - **Base Laya**: 46.71% accuracy | 77.5% specificity | **16 Unsafe PRs Approved (22.5% failure)** ❌
+   - **Convai `laya` (typed-decisions)**: 46.71% accuracy | 77.5% specificity | **16 Unsafe PRs Approved (22.5% failure)** ❌
    - **Cortex-1 Large**: **69.25% accuracy** | **100.0% specificity** | **ZERO False Approvals (100% Gating)** 
 3. **Catastrophic Shell Command Gating (Zero-Glue Test)**:
-   - `redis.flushall()`: Base Laya **60.4% Approved** ❌ | Cortex-1 **99.2% Blocked** 
-   - `Change JWT algorithm to none`: Base Laya **51.6% Approved** ❌ | Cortex-1 **99.95% Blocked** 
+   - `redis.flushall()`: Convai Specialist **60.4% Approved** ❌ | Cortex-1 **99.2% Blocked** 
+   - `Change JWT algorithm to none`: Convai Specialist **51.6% Approved** ❌ | Cortex-1 **99.95% Blocked** 
 
 ---
 
@@ -317,7 +334,7 @@ The script will:
 2. Perform cryptographic MD5 verification proving 0.00% train-test contamination.
 3. Evaluate 1,116 decisions across held-out industry benchmarks.
 4. Export every decision to [`evaluation/independent_audit_log.csv`](evaluation/independent_audit_log.csv).
-5. Print the full audit report ([`INDEPENDENT_BENCHMARK_REPORT.md`](INDEPENDENT_BENCHMARK_REPORT.md)).
+5. Print the full verification report ([`BENCHMARK_REPORT.md`](BENCHMARK_REPORT.md)).
 
 ---
 
