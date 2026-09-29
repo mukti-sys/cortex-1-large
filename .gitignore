@@ -14,6 +14,7 @@ torch-*.whl
 models/laya_large_reference/model.safetensors
 models/laya_large_reference/laya_large_weights.pt
 models/laya_large_reference/*backup*
+models/base_laya_typed_decisions/
 *.safetensors
 *.pt
 *.bin

@@ -1,7 +1,8 @@
 {
   "encoder": "answerdotai/ModernBERT-large",
   "head_layers": 2,
-  "n_act": 1,
+  "act_costs": {"escalate": 0.5},
+  "n_act": 2,
   "max_len": 512,
   "head_max_len": 192,
   "best_epoch": 2,

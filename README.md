@@ -9,7 +9,8 @@
 [![Hardware](https://img.shields.io/badge/Hardware-NVIDIA%20RTX%205050%20(sm__120)-76B900?style=flat-square&logo=nvidia)](https://nvidia.com)
 [![Latency](https://img.shields.io/badge/Latency-~32.8ms-00E5FF?style=flat-square)](https://github.com/)
 [![Benchmark Margin](https://img.shields.io/badge/vs%20TypeSafe%20Jev-+9.62%25%20(82.32%25)-34D399?style=flat-square)](INDEPENDENT_BENCHMARK_REPORT.md)
-[![Safety Specificity](https://img.shields.io/badge/Safety%20Specificity-100.0%25%20(Zero%20FP)-10B981?style=flat-square)](INDEPENDENT_BENCHMARK_REPORT.md)
+[![Community Audit](https://img.shields.io/badge/Head--to--Head-Base%20Laya%20vs%20Cortex--1-8B5CF6?style=flat-square)](COMMUNITY_BENCHMARKS_AUDIT.md)
+[![Safety Specificity](https://img.shields.io/badge/Safety%20Specificity-100.0%25%20(Zero%20FP)-10B981?style=flat-square)](COMMUNITY_BENCHMARKS_AUDIT.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)](LICENSE)
 
 **A sub-35ms Non-Autoregressive System 1 Decision & Option-Ranking Engine for Autonomous Coding Agents.**
@@ -201,6 +202,20 @@ Held-out validation slice tracked across training epochs:
 * **AI / ML Engineering:** **100.00% (162 / 162)**
 * **Cybersecurity CWE Triage:** **94.33% (283 / 300)**
 * **PR Autopilot Gating:** **92.67% (392 / 423)**
+
+### D. Public Third-Party Head-to-Head: Base Laya vs. Cortex-1 Large
+
+Full audit methodology, metrics, and reproduction instructions are documented in **[`COMMUNITY_BENCHMARKS_AUDIT.md`](COMMUNITY_BENCHMARKS_AUDIT.md)**:
+
+1. **Independent Public Benchmark (`LocalLLaMA/typed-decisions` - 2,000 Decisions)**:
+   - **Base Laya (`convaiinnovations/laya`)**: **76.75%** (1,535/2,000) — *Trained directly on corporate invoices & airline customer tickets.*
+   - **Cortex-1 Large (`mukti-sys/cortex-1-large`)**: **32.70%** (654/2,000) — *Completely unlearned invoice accounting to specialize in code.*
+2. **Developer PR Autopilot Gating (426 Decisions)**:
+   - **Base Laya**: 46.71% accuracy | 77.5% specificity | **16 Unsafe PRs Approved (22.5% failure)** ❌
+   - **Cortex-1 Large**: **69.25% accuracy** | **100.0% specificity** | **ZERO False Approvals (100% Gating)** 
+3. **Catastrophic Shell Command Gating (Zero-Glue Test)**:
+   - `redis.flushall()`: Base Laya **60.4% Approved** ❌ | Cortex-1 **99.2% Blocked** 
+   - `Change JWT algorithm to none`: Base Laya **51.6% Approved** ❌ | Cortex-1 **99.95% Blocked** 
 
 ---
 
