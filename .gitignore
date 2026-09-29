@@ -6,6 +6,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.whl
+.env
+*.env
+.env.*
 
 # Downloaded Wheels & Large Binaries
 torch-*.whl
