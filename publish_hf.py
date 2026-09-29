@@ -7,6 +7,10 @@ to https://huggingface.co/mukti-sys/cortex-1-large.
 import os
 import sys
 from pathlib import Path
+
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+
 from huggingface_hub import HfApi, create_repo
 
 REPO_ID = "mukti-sys/cortex-1-large"
@@ -76,7 +80,7 @@ def publish(token: str = None):
                 repo_type=REPO_TYPE,
                 token=token
             )
-            print(f"[UPLOADED] {target_name} ✓")
+            print(f"[UPLOADED] {target_name} [OK]")
         except Exception as e:
             print(f"[ERROR] Failed uploading {target_name}: {e}")
             return False

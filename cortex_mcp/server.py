@@ -28,15 +28,42 @@ class CortexDecisionServer:
         enc = AutoModel.from_pretrained("answerdotai/ModernBERT-large", attn_implementation="sdpa")
         self.model = DecisionModel(enc, head_layers=2)
 
-        ckpt_file = Path(checkpoint_path)
-        if ckpt_file.exists():
+        # Resolve model weights (local safetensors/pt or auto-fetch from Hugging Face Hub)
+        resolved_ckpt = None
+        candidates = [
+            Path(checkpoint_path) if checkpoint_path else None,
+            Path("models/laya_large_reference/model.safetensors"),
+            Path("models/laya_large_reference/laya_large_weights.pt"),
+            Path("model.safetensors")
+        ]
+        for c in candidates:
+            if c and c.exists():
+                resolved_ckpt = c
+                break
+
+        if resolved_ckpt is None:
+            print("[INFO] No local weights found. Fetching mukti-sys/cortex-1-large from Hugging Face Hub...")
             try:
-                ckpt = torch.load(ckpt_file, map_location=self.device)
-                if "model_state_dict" in ckpt:
-                    self.model.load_state_dict(ckpt["model_state_dict"])
-                    print(f"[INFO] Loaded trained weights from: {checkpoint_path}")
+                from huggingface_hub import hf_hub_download
+                downloaded = hf_hub_download(repo_id="mukti-sys/cortex-1-large", filename="model.safetensors")
+                resolved_ckpt = Path(downloaded)
             except Exception as e:
-                print(f"[WARN] Error loading checkpoint: {e}")
+                print(f"[WARN] Could not download from Hugging Face Hub: {e}")
+
+        if resolved_ckpt and resolved_ckpt.exists():
+            try:
+                if resolved_ckpt.suffix == ".safetensors":
+                    from safetensors.torch import load_file
+                    state_dict = load_file(str(resolved_ckpt))
+                    self.model.load_state_dict(state_dict)
+                    print(f"[INFO] Loaded trained weights from: {resolved_ckpt}")
+                else:
+                    ckpt = torch.load(resolved_ckpt, map_location=self.device)
+                    sd = ckpt["model_state_dict"] if isinstance(ckpt, dict) and "model_state_dict" in ckpt else ckpt
+                    self.model.load_state_dict(sd)
+                    print(f"[INFO] Loaded trained weights from: {resolved_ckpt}")
+            except Exception as e:
+                print(f"[WARN] Error loading checkpoint from {resolved_ckpt}: {e}")
 
         self.model.to(self.device)
         self.model.eval()

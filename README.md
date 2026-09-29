@@ -5,6 +5,7 @@
 <br/><br/>
 
 [![PyTorch 2.11](https://img.shields.io/badge/PyTorch-2.11.0%2Bcu128-EE4C2C?style=flat-square&logo=pytorch)](https://pytorch.org/)
+[![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-mukti--sys%2Fcortex--1--large-FFD21E?style=flat-square)](https://huggingface.co/mukti-sys/cortex-1-large)
 [![Hardware](https://img.shields.io/badge/Hardware-NVIDIA%20RTX%205050%20(sm__120)-76B900?style=flat-square&logo=nvidia)](https://nvidia.com)
 [![Latency](https://img.shields.io/badge/Latency-~32.8ms-00E5FF?style=flat-square)](https://github.com/)
 [![Benchmark Margin](https://img.shields.io/badge/vs%20TypeSafe%20Jev-+9.62%25%20(82.32%25)-34D399?style=flat-square)](INDEPENDENT_BENCHMARK_REPORT.md)
@@ -44,6 +45,79 @@ When autonomous coding agents write code or execute shell commands, developers f
 ```
 
 Cortex-1 does not write conversational prose or generate code tokens sequentially. Instead, it processes state in a **single non-autoregressive forward pass (~32.8ms)**, evaluating candidate technical approaches, scoring risk on a calibrated 0-4 scale, and providing hard, non-bypassable safety gates.
+
+---
+
+## Quickstart & Model Weights
+
+Model weights are hosted directly on the **[Hugging Face Hub (mukti-sys/cortex-1-large)](https://huggingface.co/mukti-sys/cortex-1-large)** (`model.safetensors`, 803 MB `bfloat16`).
+
+### 1. Installation
+
+```bash
+git clone https://github.com/mukti-sys/cortex-1-large.git
+cd cortex-1-large
+pip install -r requirements.txt
+```
+
+### 2. Run Inference in Python (Auto-download from Hugging Face)
+
+```python
+import torch
+from transformers import AutoTokenizer, AutoModel
+from huggingface_hub import hf_hub_download
+from safetensors.torch import load_file
+from laya.common import DecisionModel, build_sequence
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# 1. Fetch trained weights directly from Hugging Face Hub
+weights_path = hf_hub_download(repo_id="mukti-sys/cortex-1-large", filename="model.safetensors")
+
+# 2. Initialize ModernBERT backbone and calibrated decision head
+tokenizer = AutoTokenizer.from_pretrained("answerdotai/ModernBERT-large")
+encoder = AutoModel.from_pretrained("answerdotai/ModernBERT-large", attn_implementation="sdpa")
+model = DecisionModel(encoder, head_layers=2)
+model.load_state_dict(load_file(weights_path))
+model.to(device).eval()
+
+# 3. Dynamic Candidate Option Ranking (<35ms forward pass)
+context = "High-throughput API needs to cache user permission sets."
+question = {
+    "t": "choice",
+    "ins": "Which caching strategy is optimal?",
+    "crit": {
+        "Option A": "Cache in client-side JWT cookie",
+        "Option B": "Cache in Redis with 15-minute TTL and DB fallback",
+        "Option C": "Query PostgreSQL directly on every incoming request"
+    }
+}
+
+seq, markers = build_sequence(tokenizer, context, question)
+input_ids = torch.tensor([seq], device=device)
+marker_pos = torch.tensor([markers], device=device)
+
+with torch.no_grad():
+    logits, _ = model(
+        input_ids,
+        torch.ones_like(input_ids),
+        marker_pos,
+        torch.ones_like(marker_pos, dtype=torch.bool),
+        torch.tensor([0], device=device)
+    )
+    probs = torch.softmax(logits, dim=-1).squeeze(0)
+
+for opt, prob in zip(question["crit"].keys(), probs):
+    print(f"{opt}: {prob.item():.1%}")
+```
+
+### 3. Launch the Interactive CLI Copilot
+
+If local weights are not found, the CLI will automatically pull `mukti-sys/cortex-1-large` from Hugging Face on its first run:
+
+```bash
+python cortex_chat.py
+```
 
 ---
 

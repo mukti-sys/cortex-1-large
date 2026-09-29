@@ -10,10 +10,11 @@ __pycache__/
 # Downloaded Wheels & Large Binaries
 torch-*.whl
 
-# Model Weights (Publish via Hugging Face Hub / Git LFS)
+# Model Weights (Hosted on Hugging Face Hub: mukti-sys/cortex-1-large)
 models/laya_large_reference/model.safetensors
 models/laya_large_reference/laya_large_weights.pt
 models/laya_large_reference/*backup*
+*.safetensors
 *.pt
 *.bin
 
@@ -34,4 +35,5 @@ scratch/
 .system_generated/
 *.sqlite
 *.db
-
+hf_release_bundle/
+hf_repo/
