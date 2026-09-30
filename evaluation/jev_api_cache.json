@@ -3572,226 +3572,3588 @@
     }
   },
   "sample_76": {
-    "error": "Remote end closed connection without response"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.45,
+        "probabilities": {
+          "command_injection": 0.53,
+          "crypto_secret_leak": 0,
+          "sql_injection": 0,
+          "none_secure": 0.47,
+          "xss": 0,
+          "authz_idor": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 1.23,
+        "confidence": 0,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.58,
+          "1": 0.08,
+          "2": 0.1,
+          "3": 0.01,
+          "4": 0.23
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.34
+      }
+    },
+    "usage": {
+      "input_tokens": 843,
+      "output_tokens": 129
+    }
   },
   "sample_77": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.95,
+        "probabilities": {
+          "null_undefined_access": 0.97,
+          "syntax_type_error": 0.01,
+          "state_mutation": 0.01,
+          "network_cors_error": 0.01,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.12,
+        "confidence": 0.9,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.95,
+          "1": 0.02,
+          "2": 0.01,
+          "3": 0.02,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.79,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0.16,
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0,
+          "revert_or_redesign": 0.84
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1672,
+      "output_tokens": 172
+    }
   },
   "sample_73": {
-    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.37,
+        "probabilities": {
+          "network_cors_error": 0.08,
+          "syntax_type_error": 0.07,
+          "async_race_condition": 0.01,
+          "state_mutation": 0.47,
+          "hydration_mismatch": 0.06,
+          "null_undefined_access": 0.31
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.25,
+        "confidence": 0.79,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.08,
+          "2": 0.03,
+          "3": 0.03,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.94,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0.02,
+          "revert_or_redesign": 0.96,
+          "update_type_definition": 0.02
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1888,
+      "output_tokens": 170
+    }
   },
   "sample_75": {
-    "error": "Remote end closed connection without response"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.91,
+        "probabilities": {
+          "ssrf": 0,
+          "sql_injection": 0,
+          "authz_idor": 0,
+          "xss": 0,
+          "none_secure": 0.93,
+          "command_injection": 0.07,
+          "crypto_secret_leak": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.59,
+        "confidence": 0.51,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.75,
+          "1": 0.06,
+          "2": 0.09,
+          "3": 0.03,
+          "4": 0.07
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.32
+      }
+    },
+    "usage": {
+      "input_tokens": 1011,
+      "output_tokens": 127
+    }
   },
   "sample_78": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "tensor_shape_mismatch",
+        "confidence": 1,
+        "probabilities": {
+          "tensor_shape_mismatch": 1,
+          "cuda_oom": 0,
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0,
+          "device_mismatch": 0,
+          "gradient_nan_inf": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.65
+      }
+    },
+    "usage": {
+      "input_tokens": 1447,
+      "output_tokens": 130
+    }
   },
   "sample_79": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "authz_idor",
+        "confidence": 0.79,
+        "probabilities": {
+          "xss": 0,
+          "sql_injection": 0,
+          "authz_idor": 0.82,
+          "command_injection": 0,
+          "ssrf": 0,
+          "crypto_secret_leak": 0.16,
+          "none_secure": 0.02
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 2.21,
+        "confidence": 0.28,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.37,
+          "2": 0.07,
+          "3": 0.51,
+          "4": 0.04
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.69
+      }
+    },
+    "usage": {
+      "input_tokens": 1219,
+      "output_tokens": 129
+    }
   },
   "sample_81": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.99,
+        "probabilities": {
+          "none_secure": 1,
+          "command_injection": 0,
+          "sql_injection": 0,
+          "ssrf": 0,
+          "crypto_secret_leak": 0,
+          "xss": 0,
+          "authz_idor": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.12,
+        "confidence": 0.9,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.92,
+          "1": 0.05,
+          "2": 0.02,
+          "3": 0,
+          "4": 0.01
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.21
+      }
+    },
+    "usage": {
+      "input_tokens": 1013,
+      "output_tokens": 127
+    }
   },
   "sample_80": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.87,
+        "probabilities": {
+          "network_cors_error": 0,
+          "state_mutation": 0.9,
+          "syntax_type_error": 0,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0.01,
+          "null_undefined_access": 0.09
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.97,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0.02,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.68,
+        "probabilities": {
+          "add_optional_chaining": 0.2,
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.74,
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0.06
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1594,
+      "output_tokens": 170
+    }
   },
   "sample_83": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.47,
+        "confidence": 0.61,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.75,
+          "1": 0.03,
+          "2": 0.21,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.2
+      },
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.75,
+        "probabilities": {
+          "ssrf": 0,
+          "crypto_secret_leak": 0,
+          "none_secure": 0.79,
+          "sql_injection": 0,
+          "xss": 0.21,
+          "authz_idor": 0,
+          "command_injection": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 944,
+      "output_tokens": 127
+    }
   },
   "sample_82": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "xss",
+        "confidence": 0.89,
+        "probabilities": {
+          "ssrf": 0,
+          "authz_idor": 0,
+          "sql_injection": 0,
+          "xss": 0.91,
+          "none_secure": 0.09,
+          "command_injection": 0,
+          "crypto_secret_leak": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 1.53,
+        "confidence": 0.22,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.34,
+          "1": 0.01,
+          "2": 0.49,
+          "3": 0.09,
+          "4": 0.07
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.41
+      }
+    },
+    "usage": {
+      "input_tokens": 900,
+      "output_tokens": 127
+    }
   },
   "sample_84": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.58,
+        "probabilities": {
+          "async_race_condition": 0,
+          "hydration_mismatch": 0,
+          "null_undefined_access": 0.66,
+          "state_mutation": 0.03,
+          "syntax_type_error": 0.28,
+          "network_cors_error": 0.03
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.21,
+        "confidence": 0.83,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.88,
+          "1": 0.04,
+          "2": 0.08,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "update_type_definition",
+        "confidence": 0.75,
+        "probabilities": {
+          "revert_or_redesign": 0.18,
+          "update_type_definition": 0.81,
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0.01
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1635,
+      "output_tokens": 169
+    }
   },
   "sample_85": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "authz_idor",
+        "confidence": 0.99,
+        "probabilities": {
+          "command_injection": 0,
+          "crypto_secret_leak": 0,
+          "sql_injection": 0,
+          "none_secure": 0.01,
+          "xss": 0,
+          "authz_idor": 0.99,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 2.88,
+        "confidence": 0.85,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0,
+          "2": 0.15,
+          "3": 0.82,
+          "4": 0.03
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.79
+      }
+    },
+    "usage": {
+      "input_tokens": 1171,
+      "output_tokens": 129
+    }
   },
   "sample_86": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.47,
+        "probabilities": {
+          "network_cors_error": 0.04,
+          "syntax_type_error": 0.5700000000000001,
+          "async_race_condition": 0,
+          "null_undefined_access": 0.36,
+          "hydration_mismatch": 0,
+          "state_mutation": 0.03
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 2.36,
+        "confidence": 0.45,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.08,
+          "1": 0.09,
+          "2": 0.24,
+          "3": 0.58,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.64,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "update_type_definition": 0.25,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0.04,
+          "revert_or_redesign": 0.71
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1689,
+      "output_tokens": 170
+    }
   },
   "sample_88": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "authz_idor": 0,
+          "crypto_secret_leak": 0,
+          "xss": 0,
+          "command_injection": 0,
+          "none_secure": 1,
+          "ssrf": 0,
+          "sql_injection": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.97,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0.02,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.11
+      }
+    },
+    "usage": {
+      "input_tokens": 889,
+      "output_tokens": 127
+    }
   },
   "sample_89": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.64,
+        "probabilities": {
+          "xss": 0.02,
+          "command_injection": 0.69,
+          "sql_injection": 0.23,
+          "ssrf": 0,
+          "crypto_secret_leak": 0,
+          "authz_idor": 0,
+          "none_secure": 0.06
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 3.97,
+        "confidence": 0.97,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0,
+          "2": 0.01,
+          "3": 0.01,
+          "4": 0.98
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.79
+      }
+    },
+    "usage": {
+      "input_tokens": 882,
+      "output_tokens": 129
+    }
   },
   "sample_87": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.66,
+        "probabilities": {
+          "ssrf": 0,
+          "xss": 0,
+          "command_injection": 0.29,
+          "authz_idor": 0,
+          "crypto_secret_leak": 0,
+          "none_secure": 0.71,
+          "sql_injection": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.18,
+        "confidence": 0.85,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.84,
+          "1": 0.15,
+          "2": 0.01,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.19
+      }
+    },
+    "usage": {
+      "input_tokens": 834,
+      "output_tokens": 127
+    }
   },
   "sample_90": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "precision_bf16_error",
+        "confidence": 0.78,
+        "probabilities": {
+          "precision_bf16_error": 0.8200000000000001,
+          "dataloader_bottleneck": 0,
+          "gradient_nan_inf": 0,
+          "cuda_oom": 0,
+          "device_mismatch": 0,
+          "tensor_shape_mismatch": 0.18
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 1145,
+      "output_tokens": 130
+    }
   },
   "sample_91": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "cuda_oom",
+        "confidence": 0.99,
+        "probabilities": {
+          "device_mismatch": 0,
+          "tensor_shape_mismatch": 0,
+          "dataloader_bottleneck": 0,
+          "gradient_nan_inf": 0,
+          "precision_bf16_error": 0,
+          "cuda_oom": 1
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 1.27,
+        "confidence": 0,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.52,
+          "1": 0.02,
+          "2": 0.25,
+          "3": 0.09,
+          "4": 0.12
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.33
+      }
+    },
+    "usage": {
+      "input_tokens": 1622,
+      "output_tokens": 127
+    }
   },
   "sample_92": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.72,
+        "probabilities": {
+          "none_secure": 0.77,
+          "command_injection": 0.23,
+          "sql_injection": 0,
+          "xss": 0,
+          "crypto_secret_leak": 0,
+          "ssrf": 0,
+          "authz_idor": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.46,
+        "confidence": 0.62,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.6,
+          "1": 0.36,
+          "2": 0.02,
+          "3": 0.01,
+          "4": 0.01
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.32
+      }
+    },
+    "usage": {
+      "input_tokens": 924,
+      "output_tokens": 127
+    }
   },
   "sample_93": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.96,
+        "probabilities": {
+          "crypto_secret_leak": 0,
+          "sql_injection": 0,
+          "none_secure": 0.97,
+          "authz_idor": 0,
+          "command_injection": 0.02,
+          "xss": 0.01,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.34,
+        "confidence": 0.71,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.86,
+          "1": 0.02,
+          "2": 0.05,
+          "3": 0.03,
+          "4": 0.04
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.12
+      }
+    },
+    "usage": {
+      "input_tokens": 920,
+      "output_tokens": 127
+    }
   },
   "sample_94": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.91,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "state_mutation": 0.01,
+          "async_race_condition": 0,
+          "null_undefined_access": 0.05,
+          "network_cors_error": 0.01,
+          "syntax_type_error": 0.93
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.19,
+        "confidence": 0.84,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.89,
+          "1": 0.04,
+          "2": 0.06,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.85,
+        "probabilities": {
+          "adjust_ssr_boundary": 0,
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0,
+          "revert_or_redesign": 0.89,
+          "update_type_definition": 0.11
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1910,
+      "output_tokens": 170
+    }
   },
   "sample_95": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "cuda_oom": 0,
+          "gradient_nan_inf": 1,
+          "device_mismatch": 0,
+          "precision_bf16_error": 0,
+          "tensor_shape_mismatch": 0,
+          "dataloader_bottleneck": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.05,
+        "confidence": 0.95,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0,
+          "2": 0.01,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.12
+      }
+    },
+    "usage": {
+      "input_tokens": 1183,
+      "output_tokens": 127
+    }
   },
   "sample_96": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.99,
+        "probabilities": {
+          "sql_injection": 0,
+          "xss": 0,
+          "ssrf": 0,
+          "authz_idor": 0,
+          "command_injection": 0.99,
+          "crypto_secret_leak": 0,
+          "none_secure": 0.01
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 3.2,
+        "confidence": 0.33,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.07,
+          "2": 0.25,
+          "3": 0.06,
+          "4": 0.62
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.78
+      }
+    },
+    "usage": {
+      "input_tokens": 935,
+      "output_tokens": 129
+    }
   },
   "sample_97": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.39,
+        "probabilities": {
+          "hydration_mismatch": 0.04,
+          "syntax_type_error": 0.09,
+          "async_race_condition": 0.01,
+          "state_mutation": 0.49,
+          "network_cors_error": 0.09,
+          "null_undefined_access": 0.28
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.55,
+        "confidence": 0.54,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.51,
+          "1": 0.46,
+          "2": 0.02,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.78,
+        "probabilities": {
+          "add_optional_chaining": 0.02,
+          "revert_or_redesign": 0.84,
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0.14
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1522,
+      "output_tokens": 170
+    }
   },
   "sample_98": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "authz_idor",
+        "confidence": 0.57,
+        "probabilities": {
+          "crypto_secret_leak": 0,
+          "authz_idor": 0.64,
+          "command_injection": 0,
+          "none_secure": 0.36,
+          "ssrf": 0,
+          "xss": 0,
+          "sql_injection": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 1.32,
+        "confidence": 0,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.53,
+          "1": 0.04,
+          "2": 0.05,
+          "3": 0.34,
+          "4": 0.04
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.21
+      }
+    },
+    "usage": {
+      "input_tokens": 1056,
+      "output_tokens": 129
+    }
   },
   "sample_99": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "precision_bf16_error",
+        "confidence": 0.98,
+        "probabilities": {
+          "tensor_shape_mismatch": 0,
+          "gradient_nan_inf": 0,
+          "device_mismatch": 0.01,
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0.99,
+          "cuda_oom": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.02,
+        "confidence": 0.98,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.99,
+          "1": 0,
+          "2": 0.01,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 1402,
+      "output_tokens": 130
+    }
   },
   "sample_101": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.73,
+        "probabilities": {
+          "syntax_type_error": 0.78,
+          "null_undefined_access": 0.2,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0,
+          "state_mutation": 0.01,
+          "network_cors_error": 0.01
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 1.11,
+        "confidence": 0.08,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.54,
+          "1": 0.02,
+          "2": 0.22,
+          "3": 0.21,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 1,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "revert_or_redesign": 1,
+          "update_type_definition": 0,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1943,
+      "output_tokens": 170
+    }
   },
   "sample_100": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.85,
+        "probabilities": {
+          "adjust_ssr_boundary": 0,
+          "revert_or_redesign": 0.89,
+          "add_optional_chaining": 0,
+          "update_type_definition": 0.11,
+          "fix_async_handling": 0
+        }
+      },
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.92,
+        "probabilities": {
+          "network_cors_error": 0,
+          "hydration_mismatch": 0,
+          "state_mutation": 0.93,
+          "null_undefined_access": 0.01,
+          "syntax_type_error": 0.04,
+          "async_race_condition": 0.01
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 1.93,
+        "confidence": 0.89,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.04,
+          "1": 0.03,
+          "2": 0.9,
+          "3": 0.03,
+          "4": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1707,
+      "output_tokens": 170
+    }
   },
   "sample_102": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.84,
+        "probabilities": {
+          "syntax_type_error": 0.02,
+          "null_undefined_access": 0.87,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0,
+          "state_mutation": 0.05,
+          "network_cors_error": 0.06
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 1.88,
+        "confidence": 0.75,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.11,
+          "2": 0.75,
+          "3": 0.09,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.96,
+        "probabilities": {
+          "revert_or_redesign": 0.97,
+          "fix_async_handling": 0,
+          "update_type_definition": 0.01,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0.02
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1933,
+      "output_tokens": 172
+    }
   },
   "sample_103": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "precision_bf16_error",
+        "confidence": 0.87,
+        "probabilities": {
+          "device_mismatch": 0,
+          "cuda_oom": 0,
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0.89,
+          "tensor_shape_mismatch": 0.11,
+          "gradient_nan_inf": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.97,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0,
+          "2": 0.02,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 1504,
+      "output_tokens": 130
+    }
   },
   "sample_105": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.82,
+        "probabilities": {
+          "syntax_type_error": 0.85,
+          "state_mutation": 0.03,
+          "network_cors_error": 0.02,
+          "null_undefined_access": 0.08,
+          "hydration_mismatch": 0.01,
+          "async_race_condition": 0.01
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.21,
+        "confidence": 0.83,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.88,
+          "1": 0.04,
+          "2": 0.08,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.63,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0,
+          "adjust_ssr_boundary": 0.09,
+          "revert_or_redesign": 0.71,
+          "update_type_definition": 0.2
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1497,
+      "output_tokens": 170
+    }
   },
   "sample_104": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.42,
+        "probabilities": {
+          "authz_idor": 0,
+          "sql_injection": 0,
+          "crypto_secret_leak": 0,
+          "ssrf": 0,
+          "xss": 0.02,
+          "none_secure": 0.47000000000000003,
+          "command_injection": 0.51
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 3.25,
+        "confidence": 0.38,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.18,
+          "1": 0,
+          "2": 0,
+          "3": 0.01,
+          "4": 0.81
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.69
+      }
+    },
+    "usage": {
+      "input_tokens": 848,
+      "output_tokens": 129
+    }
   },
   "sample_106": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "command_injection": 0,
+          "none_secure": 1,
+          "sql_injection": 0,
+          "authz_idor": 0,
+          "xss": 0,
+          "crypto_secret_leak": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.01,
+        "confidence": 0.99,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.99,
+          "1": 0.01,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.09
+      }
+    },
+    "usage": {
+      "input_tokens": 880,
+      "output_tokens": 127
+    }
   },
   "sample_107": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.47,
+        "probabilities": {
+          "syntax_type_error": 0.31,
+          "state_mutation": 0.56,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0.01,
+          "null_undefined_access": 0.11,
+          "network_cors_error": 0.01
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.52,
+        "confidence": 0.56,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.72,
+          "1": 0.09,
+          "2": 0.13,
+          "3": 0.05,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.89,
+        "probabilities": {
+          "adjust_ssr_boundary": 0.01,
+          "update_type_definition": 0.08,
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0,
+          "revert_or_redesign": 0.91
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1836,
+      "output_tokens": 170
+    }
   },
   "sample_108": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "device_mismatch": 0,
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0,
+          "cuda_oom": 0,
+          "gradient_nan_inf": 1,
+          "tensor_shape_mismatch": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.61
+      }
+    },
+    "usage": {
+      "input_tokens": 1378,
+      "output_tokens": 127
+    }
   },
   "sample_109": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "authz_idor": 0,
+          "none_secure": 1,
+          "command_injection": 0,
+          "ssrf": 0,
+          "crypto_secret_leak": 0,
+          "xss": 0,
+          "sql_injection": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.97,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0.01,
+          "2": 0.01,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.11
+      }
+    },
+    "usage": {
+      "input_tokens": 887,
+      "output_tokens": 127
+    }
   },
   "sample_110": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.4,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "network_cors_error": 0.01,
+          "state_mutation": 0.14,
+          "async_race_condition": 0,
+          "null_undefined_access": 0.34,
+          "syntax_type_error": 0.51
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.5,
+        "confidence": 0.59,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.63,
+          "1": 0.28,
+          "2": 0.05,
+          "3": 0.04,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "update_type_definition",
+        "confidence": 0.8,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0,
+          "revert_or_redesign": 0.15,
+          "update_type_definition": 0.85,
+          "add_optional_chaining": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1650,
+      "output_tokens": 167
+    }
   },
   "sample_111": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.81,
+        "probabilities": {
+          "xss": 0,
+          "sql_injection": 0,
+          "command_injection": 0.16,
+          "ssrf": 0,
+          "authz_idor": 0,
+          "none_secure": 0.84,
+          "crypto_secret_leak": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.3,
+        "confidence": 0.75,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.86,
+          "1": 0.06,
+          "2": 0.02,
+          "3": 0.02,
+          "4": 0.04
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.17
+      }
+    },
+    "usage": {
+      "input_tokens": 848,
+      "output_tokens": 127
+    }
   },
   "sample_112": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.9,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "syntax_type_error": 0.01,
+          "async_race_condition": 0.03,
+          "state_mutation": 0.92,
+          "network_cors_error": 0,
+          "null_undefined_access": 0.04
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.07,
+        "confidence": 0.94,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.98,
+          "1": 0,
+          "2": 0,
+          "3": 0.01,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.98,
+        "probabilities": {
+          "update_type_definition": 0.01,
+          "revert_or_redesign": 0.99,
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1763,
+      "output_tokens": 170
+    }
   },
   "sample_113": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "device_mismatch": 0,
+          "precision_bf16_error": 0,
+          "tensor_shape_mismatch": 0,
+          "gradient_nan_inf": 1,
+          "dataloader_bottleneck": 0,
+          "cuda_oom": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.01,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 1258,
+      "output_tokens": 127
+    }
   },
   "sample_114": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.31,
+        "probabilities": {
+          "async_race_condition": 0.01,
+          "null_undefined_access": 0.22,
+          "hydration_mismatch": 0.01,
+          "network_cors_error": 0.02,
+          "state_mutation": 0.32,
+          "syntax_type_error": 0.42
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.72,
+        "confidence": 0.4,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.62,
+          "1": 0.13,
+          "2": 0.17,
+          "3": 0.07,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.88,
+        "probabilities": {
+          "add_optional_chaining": 0,
+          "revert_or_redesign": 0.91,
+          "adjust_ssr_boundary": 0,
+          "fix_async_handling": 0,
+          "update_type_definition": 0.09
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1605,
+      "output_tokens": 170
+    }
   },
   "sample_116": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0,
+          "gradient_nan_inf": 1,
+          "tensor_shape_mismatch": 0,
+          "cuda_oom": 0,
+          "device_mismatch": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.51
+      }
+    },
+    "usage": {
+      "input_tokens": 1554,
+      "output_tokens": 127
+    }
   },
   "sample_115": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.61,
+        "probabilities": {
+          "hydration_mismatch": 0.01,
+          "network_cors_error": 0.01,
+          "state_mutation": 0.67,
+          "async_race_condition": 0.01,
+          "syntax_type_error": 0.22,
+          "null_undefined_access": 0.08
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.15,
+        "confidence": 0.87,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.93,
+          "1": 0.01,
+          "2": 0.06,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.97,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "adjust_ssr_boundary": 0.01,
+          "revert_or_redesign": 0.98,
+          "update_type_definition": 0.01,
+          "add_optional_chaining": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1685,
+      "output_tokens": 170
+    }
   },
   "sample_117": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.99,
+        "probabilities": {
+          "authz_idor": 0,
+          "command_injection": 0,
+          "crypto_secret_leak": 0,
+          "none_secure": 1,
+          "xss": 0,
+          "sql_injection": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.25,
+        "confidence": 0.79,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.91,
+          "1": 0.03,
+          "2": 0.01,
+          "3": 0.01,
+          "4": 0.04
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.12
+      }
+    },
+    "usage": {
+      "input_tokens": 969,
+      "output_tokens": 127
+    }
   },
   "sample_118": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.72,
+        "probabilities": {
+          "none_secure": 0.24,
+          "command_injection": 0.76,
+          "crypto_secret_leak": 0,
+          "authz_idor": 0,
+          "ssrf": 0,
+          "sql_injection": 0,
+          "xss": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 1.61,
+        "confidence": 0,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.44,
+          "1": 0.11,
+          "2": 0.15,
+          "3": 0.02,
+          "4": 0.28
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.44
+      }
+    },
+    "usage": {
+      "input_tokens": 809,
+      "output_tokens": 129
+    }
   },
   "sample_120": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.74,
+        "probabilities": {
+          "async_race_condition": 0.01,
+          "null_undefined_access": 0.05,
+          "hydration_mismatch": 0.16,
+          "network_cors_error": 0,
+          "state_mutation": 0.78,
+          "syntax_type_error": 0
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.15,
+        "confidence": 0.88,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.92,
+          "1": 0.02,
+          "2": 0.03,
+          "3": 0.02,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.96,
+        "probabilities": {
+          "add_optional_chaining": 0.02,
+          "revert_or_redesign": 0.97,
+          "fix_async_handling": 0,
+          "update_type_definition": 0.01,
+          "adjust_ssr_boundary": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1604,
+      "output_tokens": 170
+    }
   },
   "sample_119": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "precision_bf16_error",
+        "confidence": 0.99,
+        "probabilities": {
+          "tensor_shape_mismatch": 0,
+          "gradient_nan_inf": 0,
+          "device_mismatch": 0,
+          "dataloader_bottleneck": 0,
+          "precision_bf16_error": 0.99,
+          "cuda_oom": 0.01
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.08,
+        "confidence": 0.93,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.96,
+          "1": 0.01,
+          "2": 0.03,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.33
+      }
+    },
+    "usage": {
+      "input_tokens": 1406,
+      "output_tokens": 130
+    }
   },
   "sample_121": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.85,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "null_undefined_access": 0.09,
+          "async_race_condition": 0,
+          "network_cors_error": 0,
+          "syntax_type_error": 0.02,
+          "state_mutation": 0.89
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.54,
+        "confidence": 0.55,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.67,
+          "1": 0.17,
+          "2": 0.1,
+          "3": 0.05,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.98,
+        "probabilities": {
+          "adjust_ssr_boundary": 0,
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.99,
+          "add_optional_chaining": 0.01,
+          "update_type_definition": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1776,
+      "output_tokens": 170
+    }
   },
   "sample_122": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "cuda_oom",
+        "confidence": 1,
+        "probabilities": {
+          "tensor_shape_mismatch": 0,
+          "precision_bf16_error": 0,
+          "device_mismatch": 0,
+          "cuda_oom": 1,
+          "gradient_nan_inf": 0,
+          "dataloader_bottleneck": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 1.15,
+        "confidence": 0.04,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.52,
+          "1": 0.06,
+          "2": 0.2,
+          "3": 0.2,
+          "4": 0.02
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.45
+      }
+    },
+    "usage": {
+      "input_tokens": 1083,
+      "output_tokens": 127
+    }
   },
   "sample_124": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.71,
+        "probabilities": {
+          "none_secure": 0.76,
+          "ssrf": 0,
+          "authz_idor": 0,
+          "sql_injection": 0.23,
+          "crypto_secret_leak": 0,
+          "command_injection": 0,
+          "xss": 0.01
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.42,
+        "confidence": 0.65,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.77,
+          "1": 0.09,
+          "2": 0.09,
+          "3": 0.03,
+          "4": 0.02
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.24
+      }
+    },
+    "usage": {
+      "input_tokens": 994,
+      "output_tokens": 127
+    }
   },
   "sample_123": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "device_mismatch",
+        "confidence": 1,
+        "probabilities": {
+          "tensor_shape_mismatch": 0,
+          "precision_bf16_error": 0,
+          "device_mismatch": 1,
+          "gradient_nan_inf": 0,
+          "cuda_oom": 0,
+          "dataloader_bottleneck": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.7
+      }
+    },
+    "usage": {
+      "input_tokens": 1463,
+      "output_tokens": 129
+    }
   },
   "sample_125": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.37,
+        "probabilities": {
+          "network_cors_error": 0.17,
+          "hydration_mismatch": 0,
+          "state_mutation": 0.17,
+          "null_undefined_access": 0.48,
+          "syntax_type_error": 0.17,
+          "async_race_condition": 0.01
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.96,
+        "confidence": 0.96,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.04,
+          "1": 0.96,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.89,
+        "probabilities": {
+          "adjust_ssr_boundary": 0,
+          "revert_or_redesign": 0.92,
+          "add_optional_chaining": 0.05,
+          "update_type_definition": 0.03,
+          "fix_async_handling": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1545,
+      "output_tokens": 172
+    }
   },
   "sample_126": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "command_injection": 0,
+          "authz_idor": 0,
+          "none_secure": 1,
+          "sql_injection": 0,
+          "crypto_secret_leak": 0,
+          "xss": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.08,
+        "confidence": 0.93,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.94,
+          "1": 0.05,
+          "2": 0.01,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.14
+      }
+    },
+    "usage": {
+      "input_tokens": 969,
+      "output_tokens": 127
+    }
   },
   "sample_127": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 0.76,
+        "probabilities": {
+          "sql_injection": 0,
+          "authz_idor": 0,
+          "none_secure": 0.8,
+          "command_injection": 0.2,
+          "crypto_secret_leak": 0,
+          "ssrf": 0,
+          "xss": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.13,
+        "confidence": 0.9,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.92,
+          "1": 0.05,
+          "2": 0.01,
+          "3": 0.01,
+          "4": 0.01
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.2
+      }
+    },
+    "usage": {
+      "input_tokens": 932,
+      "output_tokens": 127
+    }
   },
   "sample_128": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "crypto_secret_leak": 0,
+          "none_secure": 1,
+          "sql_injection": 0,
+          "authz_idor": 0,
+          "command_injection": 0,
+          "xss": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.06,
+        "confidence": 0.95,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.97,
+          "1": 0.03,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.1
+      }
+    },
+    "usage": {
+      "input_tokens": 935,
+      "output_tokens": 127
+    }
   },
   "sample_129": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "exploitability_score": {
+        "type": "score",
+        "score": 1.46,
+        "confidence": 0.54,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.7,
+          "2": 0.08,
+          "3": 0.08,
+          "4": 0.09
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.57
+      },
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.51,
+        "probabilities": {
+          "command_injection": 0.58,
+          "none_secure": 0.42,
+          "crypto_secret_leak": 0,
+          "authz_idor": 0,
+          "sql_injection": 0,
+          "ssrf": 0,
+          "xss": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 965,
+      "output_tokens": 129
+    }
   },
   "sample_130": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.44,
+        "probabilities": {
+          "xss": 0,
+          "authz_idor": 0,
+          "none_secure": 0.47,
+          "ssrf": 0,
+          "crypto_secret_leak": 0,
+          "sql_injection": 0,
+          "command_injection": 0.53
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.77,
+        "confidence": 0.36,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.53,
+          "1": 0.32,
+          "2": 0.07,
+          "3": 0.03,
+          "4": 0.05
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.49
+      }
+    },
+    "usage": {
+      "input_tokens": 1012,
+      "output_tokens": 129
+    }
   },
   "sample_131": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.47,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "null_undefined_access": 0.37,
+          "network_cors_error": 0.01,
+          "syntax_type_error": 0.06,
+          "async_race_condition": 0,
+          "state_mutation": 0.56
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.12,
+        "confidence": 0.9,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.93,
+          "1": 0.03,
+          "2": 0.03,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.73,
+        "probabilities": {
+          "revert_or_redesign": 0.79,
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0.01,
+          "update_type_definition": 0.2,
+          "adjust_ssr_boundary": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1767,
+      "output_tokens": 170
+    }
   },
   "sample_132": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.33,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "state_mutation": 0.25,
+          "syntax_type_error": 0.27,
+          "network_cors_error": 0.02,
+          "async_race_condition": 0.01,
+          "null_undefined_access": 0.45
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.39,
+        "confidence": 0.68,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.79,
+          "1": 0.08,
+          "2": 0.09,
+          "3": 0.04,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.73,
+        "probabilities": {
+          "update_type_definition": 0.07,
+          "adjust_ssr_boundary": 0.01,
+          "add_optional_chaining": 0.13,
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.79
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1624,
+      "output_tokens": 172
+    }
   },
   "sample_133": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "crypto_secret_leak",
+        "confidence": 0.96,
+        "probabilities": {
+          "crypto_secret_leak": 0.96,
+          "sql_injection": 0,
+          "none_secure": 0.02,
+          "authz_idor": 0.02,
+          "command_injection": 0,
+          "xss": 0,
+          "ssrf": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 2.35,
+        "confidence": 0.45,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.29,
+          "2": 0.01,
+          "3": 0.68,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.64
+      }
+    },
+    "usage": {
+      "input_tokens": 1090,
+      "output_tokens": 129
+    }
   },
   "sample_134": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.99,
+        "probabilities": {
+          "authz_idor": 0,
+          "crypto_secret_leak": 0,
+          "xss": 0,
+          "sql_injection": 0,
+          "ssrf": 0,
+          "none_secure": 0.01,
+          "command_injection": 0.99
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 3.32,
+        "confidence": 0.43,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.08,
+          "2": 0.19,
+          "3": 0.05,
+          "4": 0.68
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.79
+      }
+    },
+    "usage": {
+      "input_tokens": 943,
+      "output_tokens": 129
+    }
   },
   "sample_135": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.97,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 0.99,
+          "1": 0,
+          "2": 0.01,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.65
+      },
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "dataloader_bottleneck": 0,
+          "cuda_oom": 0,
+          "device_mismatch": 0,
+          "tensor_shape_mismatch": 0,
+          "gradient_nan_inf": 1,
+          "precision_bf16_error": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1491,
+      "output_tokens": 127
+    }
   },
   "sample_136": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.87,
+        "probabilities": {
+          "network_cors_error": 0,
+          "async_race_condition": 0,
+          "syntax_type_error": 0,
+          "null_undefined_access": 0.9,
+          "hydration_mismatch": 0,
+          "state_mutation": 0.1
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.3,
+        "confidence": 0.75,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.06,
+          "2": 0.04,
+          "3": 0.04,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.95,
+        "probabilities": {
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0,
+          "revert_or_redesign": 0.97,
+          "fix_async_handling": 0,
+          "add_optional_chaining": 0.03
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1593,
+      "output_tokens": 172
+    }
   },
   "sample_137": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "network_cors_error",
+        "confidence": 0.76,
+        "probabilities": {
+          "hydration_mismatch": 0.01,
+          "null_undefined_access": 0.12,
+          "network_cors_error": 0.79,
+          "async_race_condition": 0,
+          "state_mutation": 0.06,
+          "syntax_type_error": 0.02
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.94,
+        "confidence": 0.22,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.57,
+          "1": 0.15,
+          "2": 0.14,
+          "3": 0.06,
+          "4": 0.08
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.98,
+        "probabilities": {
+          "add_optional_chaining": 0.01,
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0,
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.99
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1369,
+      "output_tokens": 171
+    }
   },
   "sample_138": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "tensor_shape_mismatch": 0,
+          "gradient_nan_inf": 1,
+          "cuda_oom": 0,
+          "precision_bf16_error": 0,
+          "dataloader_bottleneck": 0,
+          "device_mismatch": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 1389,
+      "output_tokens": 127
+    }
   },
   "sample_140": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "precision_bf16_error": 0,
+          "tensor_shape_mismatch": 0,
+          "dataloader_bottleneck": 0,
+          "device_mismatch": 0,
+          "gradient_nan_inf": 1,
+          "cuda_oom": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0.03,
+        "confidence": 0.98,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.42
+      }
+    },
+    "usage": {
+      "input_tokens": 1451,
+      "output_tokens": 127
+    }
   },
   "sample_139": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "null_undefined_access",
+        "confidence": 0.51,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "state_mutation": 0.07,
+          "syntax_type_error": 0.26,
+          "async_race_condition": 0.02,
+          "null_undefined_access": 0.59,
+          "network_cors_error": 0.06
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.2,
+        "confidence": 0.84,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.91,
+          "1": 0.02,
+          "2": 0.04,
+          "3": 0.03,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.94,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "update_type_definition": 0.01,
+          "adjust_ssr_boundary": 0.01,
+          "add_optional_chaining": 0.03,
+          "revert_or_redesign": 0.95
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1847,
+      "output_tokens": 172
+    }
   },
   "sample_141": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.22,
+        "probabilities": {
+          "network_cors_error": 0.02,
+          "null_undefined_access": 0.28,
+          "state_mutation": 0.35,
+          "async_race_condition": 0.01,
+          "hydration_mismatch": 0,
+          "syntax_type_error": 0.34
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.2,
+        "confidence": 0.84,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.88,
+          "1": 0.07,
+          "2": 0.04,
+          "3": 0.01,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "update_type_definition",
+        "confidence": 0.45,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.39,
+          "update_type_definition": 0.56,
+          "adjust_ssr_boundary": 0.04,
+          "add_optional_chaining": 0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1789,
+      "output_tokens": 167
+    }
   },
   "sample_142": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "ml_root_cause": {
+        "type": "choice",
+        "choice": "gradient_nan_inf",
+        "confidence": 1,
+        "probabilities": {
+          "gradient_nan_inf": 1,
+          "cuda_oom": 0,
+          "precision_bf16_error": 0,
+          "tensor_shape_mismatch": 0,
+          "device_mismatch": 0,
+          "dataloader_bottleneck": 0
+        }
+      },
+      "vram_mitigation_score": {
+        "type": "score",
+        "score": 0,
+        "confidence": 1,
+        "legend": {
+          "0": "No VRAM issue present.",
+          "1": "Minor: clear empty cache with torch.cuda.empty_cache().",
+          "2": "Moderate: enable bf16 mixed precision or reduce batch size by 50%.",
+          "3": "Significant: enable gradient checkpointing and gradient accumulation.",
+          "4": "Extreme: apply CPU offloading (DeepSpeed ZeRO-3 / FSDP) or LoRA/QLoRA 4-bit."
+        },
+        "probabilities": {
+          "0": 1,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "requires_code_refactor": {
+        "type": "noul",
+        "noul": 0.68
+      }
+    },
+    "usage": {
+      "input_tokens": 1447,
+      "output_tokens": 127
+    }
   },
   "sample_144": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "state_mutation",
+        "confidence": 0.88,
+        "probabilities": {
+          "syntax_type_error": 0.02,
+          "null_undefined_access": 0.08,
+          "state_mutation": 0.9,
+          "network_cors_error": 0,
+          "hydration_mismatch": 0,
+          "async_race_condition": 0
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.65,
+        "confidence": 0.45,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.58,
+          "1": 0.23,
+          "2": 0.14,
+          "3": 0.05,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.9,
+        "probabilities": {
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.92,
+          "adjust_ssr_boundary": 0,
+          "update_type_definition": 0.06,
+          "add_optional_chaining": 0.02
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1739,
+      "output_tokens": 170
+    }
   },
   "sample_143": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "none_secure",
+        "confidence": 1,
+        "probabilities": {
+          "xss": 0,
+          "crypto_secret_leak": 0,
+          "sql_injection": 0,
+          "ssrf": 0,
+          "command_injection": 0,
+          "authz_idor": 0,
+          "none_secure": 1
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 0.02,
+        "confidence": 0.99,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.99,
+          "1": 0.01,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.1
+      }
+    },
+    "usage": {
+      "input_tokens": 922,
+      "output_tokens": 127
+    }
   },
   "sample_145": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.8,
+        "probabilities": {
+          "hydration_mismatch": 0,
+          "state_mutation": 0.03,
+          "syntax_type_error": 0.84,
+          "network_cors_error": 0.04,
+          "async_race_condition": 0,
+          "null_undefined_access": 0.09
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.96,
+        "confidence": 0.95,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.95,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "update_type_definition",
+        "confidence": 0.79,
+        "probabilities": {
+          "update_type_definition": 0.84,
+          "adjust_ssr_boundary": 0,
+          "add_optional_chaining": 0,
+          "fix_async_handling": 0,
+          "revert_or_redesign": 0.16
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1747,
+      "output_tokens": 167
+    }
   },
   "sample_146": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "bug_category": {
+        "type": "choice",
+        "choice": "syntax_type_error",
+        "confidence": 0.31,
+        "probabilities": {
+          "null_undefined_access": 0.21,
+          "async_race_condition": 0.01,
+          "hydration_mismatch": 0.01,
+          "network_cors_error": 0.02,
+          "state_mutation": 0.33,
+          "syntax_type_error": 0.42
+        }
+      },
+      "breaking_change_risk": {
+        "type": "score",
+        "score": 0.64,
+        "confidence": 0.46,
+        "legend": {
+          "0": "Zero risk: internal implementation detail with no API signature change.",
+          "1": "Low risk: backward-compatible optional prop or parameter added.",
+          "2": "Medium risk: deprecation of prop or slight change in component markup structure.",
+          "3": "High risk: changed required API field or removed public hook/component.",
+          "4": "Critical risk: widespread breaking change across core routing or authentication."
+        },
+        "probabilities": {
+          "0": 0.62,
+          "1": 0.14,
+          "2": 0.19,
+          "3": 0.04,
+          "4": 0.01
+        }
+      },
+      "recommended_action": {
+        "type": "choice",
+        "choice": "revert_or_redesign",
+        "confidence": 0.91,
+        "probabilities": {
+          "add_optional_chaining": 0,
+          "revert_or_redesign": 0.9400000000000001,
+          "fix_async_handling": 0,
+          "update_type_definition": 0.03,
+          "adjust_ssr_boundary": 0.03
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1938,
+      "output_tokens": 170
+    }
   },
   "sample_147": {
-    "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"
+    "model": "jev-1.13.0",
+    "answers": {
+      "vulnerability_class": {
+        "type": "choice",
+        "choice": "command_injection",
+        "confidence": 0.51,
+        "probabilities": {
+          "command_injection": 0.58,
+          "ssrf": 0,
+          "xss": 0,
+          "authz_idor": 0.02,
+          "crypto_secret_leak": 0,
+          "none_secure": 0.4,
+          "sql_injection": 0
+        }
+      },
+      "exploitability_score": {
+        "type": "score",
+        "score": 2.25,
+        "confidence": 0.2,
+        "legend": {
+          "0": "No security impact / secure implementation.",
+          "1": "Low: requires authenticated local access or unusual preconditions.",
+          "2": "Medium: requires specific user interaction (e.g. CSRF/reflected XSS).",
+          "3": "High: unauthenticated remote exploitation with data leakage.",
+          "4": "Critical: unauthenticated remote code execution (RCE) or complete database compromise."
+        },
+        "probabilities": {
+          "0": 0.08,
+          "1": 0.19,
+          "2": 0.29,
+          "3": 0.27,
+          "4": 0.17
+        }
+      },
+      "is_immediate_blocker": {
+        "type": "noul",
+        "noul": 0.52
+      }
+    },
+    "usage": {
+      "input_tokens": 901,
+      "output_tokens": 129
+    }
   },
   "sample_149": {
     "error": "HTTP 402: {\"error\":{\"type\":\"insufficient_credits\",\"message\":\"Not enough input tokens. Buy tokens at https://jevmodel.org/pricing/\"}}"

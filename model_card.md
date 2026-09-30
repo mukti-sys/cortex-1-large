@@ -52,10 +52,10 @@ widget:
 * **Cybersecurity CWE Triage:** **95.2% (300 / 315 correct)**
 
 ### Matched Head-to-Head vs. TypeSafe Jev (Live API: `jev-1.13.0`)
-Evaluated across 222 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via TypeSafe Jev's official API (`https://jevmodel.org/v1/systemone`):
-* **TypeSafe Jev (`jev-1.13.0` Live API):** **43.69%** (97 / 222 correct, Wilson 95% CI: $[37.33\%, 50.27\%]$)
-* **Cortex-1 Large (This Work):** **57.21%** (127 / 222 correct, Wilson 95% CI: $[50.62\%, 63.56\%]$)
-* **Net Empirical Margin:** **+13.52% Lead ($p < 0.005$)**
+Evaluated across 444 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via TypeSafe Jev's official API (`https://jevmodel.org/v1/systemone`):
+* **TypeSafe Jev (`jev-1.13.0` Live API):** **45.50%** (202 / 444 correct, Wilson 95% CI: $[40.92\%, 50.15\%]$, Brier: 0.3687)
+* **Cortex-1 Large (This Work):** **79.73%** (354 / 444 correct, Wilson 95% CI: $[75.74\%, 83.21\%]$, Brier: 0.0974)
+* **Net Empirical Margin:** **+34.23% Lead ($p < 10^{-15}$, -73.6% Brier Error)**
 * **Decision Verification Log:** [`evaluation/matched_jev_head_to_head.csv`](https://github.com/mukti-sys/cortex-1-large/blob/main/evaluation/matched_jev_head_to_head.csv)
 
 ### Set 2: Developer PR Autopilot Gating (Held-Out)

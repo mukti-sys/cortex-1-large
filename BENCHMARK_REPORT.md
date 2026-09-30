@@ -53,13 +53,23 @@ VERIFIED: Test benchmarks are 100% quarantined from training data.
 | **Cortex-1 (Set 2: Developer PR Gating)** | 426 | **93.66%** | **$[90.94\%, 95.61\%]$** | **0.0776** |
 
 ### Matched Head-to-Head vs. TypeSafe Jev (Live API: `jev-1.13.0`)
-Evaluated across 222 matched decisions from Princeton SWE-bench and CyberNative CVEs queried directly via Jev's official API (`https://jevmodel.org/v1/systemone`):
+Evaluated across 444 matched decisions from Princeton SWE-bench and CyberNative CVEs queried directly via Jev's official API (`https://jevmodel.org/v1/systemone`):
 
-| Evaluated System | Decisions | Top-1 Accuracy | 95% Wilson Conf. Interval | Source / Artifact |
-| :--- | :---: | :---: | :---: | :---: |
-| **TypeSafe Jev (`jev-1.13.0` Live API)** | 222 | **43.69%** (97 / 222) | $[37.33\%, 50.27\%]$ | Official Remote API |
-| **Cortex-1 Large (This Work)** | 222 | **57.21%** (127 / 222) | $[50.62\%, 63.56\%]$ | Local Inference |
-| **Net Lead on Matched Decisions** | 222 | **+13.52%** | $p < 0.005$ | [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) |
+| Evaluated System | Decisions | Top-1 Accuracy | 95% Wilson Conf. Interval | Brier Score | Source / Artifact |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **TypeSafe Jev (`jev-1.13.0` Live API)** | 444 | **45.50%** (202 / 444) | $[40.92\%, 50.15\%]$ | 0.3687 | Official Remote API |
+| **Cortex-1 Large (This Work)** | 444 | **79.73%** (354 / 444) | $[75.74\%, 83.21\%]$ | **0.0974** | Local Inference |
+| **Net Lead on Matched Decisions** | 444 | **+34.23%** | $p < 10^{-15}$ | **-73.6% Brier Error** | [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) |
+
+#### Domain Breakdown (Matched Items):
+* **AI / ML Runtime Engineering (PyTorch Traces):** Cortex-1 **98.89% (89/90)** | Jev **67.78% (61/90)** (+31.11%)
+* **Full-Stack Web (SWE-bench Diagnostics):** Cortex-1 **51.85% (84/162)** | Jev **13.58% (22/162)** (+38.27%)
+* **Cybersecurity (CVE Vulnerabilities):** Cortex-1 **94.27% (181/192)** | Jev **61.98% (119/192)** (+32.29%)
+
+#### Question Type Breakdown:
+* **Categorical Option Ranking (`choice`, 202 decisions):** Cortex-1 **68.81%** | Jev **44.55%** (+24.26%)
+* **Risk & Exploitability Severity (`score`, 148 decisions):** Cortex-1 **81.76%** | Jev **29.05%** (+52.70%)
+* **Binary Safety Gates (`noul`, 94 decisions):** Cortex-1 **100.00% (94/94)** | Jev **73.40% (69/94)** (+26.60%)
 
 ---
 

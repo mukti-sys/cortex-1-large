@@ -8,7 +8,7 @@
 [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-mukti--sys%2Fcortex--1--large-FFD21E?style=flat-square)](https://huggingface.co/mukti-sys/cortex-1-large)
 [![Hardware](https://img.shields.io/badge/Hardware-NVIDIA%20RTX%205050%20(sm__120)-76B900?style=flat-square&logo=nvidia)](https://nvidia.com)
 [![Latency](https://img.shields.io/badge/Latency-~32.8ms-00E5FF?style=flat-square)](https://github.com/)
-[![vs TypeSafe Jev (Live API)](https://img.shields.io/badge/vs%20TypeSafe%20Jev%20(Live%20API)-+13.52%25%20Lead-10B981?style=flat-square)](BENCHMARK_REPORT.md#matched-head-to-head-vs-typesafe-jev-live-api-jev-1130)
+[![vs TypeSafe Jev (Live API)](https://img.shields.io/badge/vs%20TypeSafe%20Jev%20(Live%20API)-+34.23%25%20Lead-10B981?style=flat-square)](BENCHMARK_REPORT.md#matched-head-to-head-vs-typesafe-jev-live-api-jev-1130)
 [![Benchmark Report](https://img.shields.io/badge/Benchmark%20Report-Held--Out%20SWE%20%26%20CVE-34D399?style=flat-square)](BENCHMARK_REPORT.md)
 [![Head-to-Head](https://img.shields.io/badge/Head--to--Head-Laya%20Specialist%20vs%20Cortex--1-8B5CF6?style=flat-square)](HEAD_TO_HEAD_EVALUATION.md)
 [![Safety Specificity](https://img.shields.io/badge/PR%20Gating%20Specificity-100.0%25%20(Held--Out)-10B981?style=flat-square)](HEAD_TO_HEAD_EVALUATION.md)
@@ -19,9 +19,9 @@
 Built on ModernBERT-Large (421M) with dynamic marker-token pooling. Trained to act as an on-device prefrontal cortex for agent harnesses like Google Antigravity, Cursor, and custom dev tools.
 
 > **Empirical Matched Benchmark (Live API Head-to-Head):**  
-> Evaluated side-by-side against **TypeSafe Jev (`jev-1.13.0`)** across 222 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via Jev's official API (`https://jevmodel.org/v1/systemone`):  
-> • **TypeSafe Jev (`jev-1.13.0` Live API):** `43.69%` (97 / 222)  
-> • **Cortex-1 Large (This Work):** `57.21%` (127 / 222) — **+13.52% Empirical Lead ($p < 0.005$)**  
+> Evaluated side-by-side against **TypeSafe Jev (`jev-1.13.0`)** across 444 identical technical decisions from Princeton SWE-bench and CyberNative CVEs queried live via Jev's official API (`https://jevmodel.org/v1/systemone`):  
+> • **TypeSafe Jev (`jev-1.13.0` Live API):** `45.50%` (202 / 444, Brier: `0.3687`)  
+> • **Cortex-1 Large (This Work):** `79.73%` (354 / 444, Brier: `0.0974`) — **+34.23% Empirical Lead ($p < 10^{-15}$, -73.6% Brier Error)**  
 > • **Decision Audit Log:** [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) | **Reproduction:** `python evaluation/run_matched_jev_benchmark.py`
 
 </div>
@@ -192,11 +192,11 @@ Evaluated across 230 held-out cases (690 decisions) from Princeton SWE-bench and
 #### Matched Head-to-Head vs. TypeSafe Jev (Live API: `jev-1.13.0`)
 To provide a strictly matched comparison against closed-source alternatives, both models were evaluated on identical held-out SWE-bench and CyberNative CVE items queried live via TypeSafe Jev's official API (`https://jevmodel.org/v1/systemone`):
 
-| Evaluated System | Decisions | Top-1 Accuracy | 95% Wilson Conf. Interval | Source / Artifact |
-| :--- | :---: | :---: | :---: | :---: |
-| **TypeSafe Jev (`jev-1.13.0` Live API)** | 222 | **43.69%** (97 / 222) | $[37.33\%, 50.27\%]$ | Official Remote API |
-| **Cortex-1 Large (This Work)** | 222 | **57.21%** (127 / 222) | $[50.62\%, 63.56\%]$ | Local Inference |
-| **Net Lead on Matched Decisions** | 222 | **+13.52%** | $p < 0.005$ | [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) |
+| Evaluated System | Decisions | Top-1 Accuracy | 95% Wilson Conf. Interval | Brier Score | Source / Artifact |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **TypeSafe Jev (`jev-1.13.0` Live API)** | 444 | **45.50%** (202 / 444) | $[40.92\%, 50.15\%]$ | 0.3687 | Official Remote API |
+| **Cortex-1 Large (This Work)** | 444 | **79.73%** (354 / 444) | $[75.74\%, 83.21\%]$ | **0.0974** | Local Inference |
+| **Net Lead on Matched Decisions** | 444 | **+34.23%** | $p < 10^{-15}$ | **-73.6% Brier Error** | [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv) |
 
 * Detailed decision audit logs: [`evaluation/independent_audit_log.csv`](evaluation/independent_audit_log.csv) and [`evaluation/matched_jev_head_to_head.csv`](evaluation/matched_jev_head_to_head.csv)
 * Reproduction script: `python evaluation/run_matched_jev_benchmark.py`

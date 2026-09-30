@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple
 
 if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
 
 import torch
 import numpy as np
@@ -30,8 +30,22 @@ from transformers import AutoTokenizer, AutoModel
 from laya.common import DecisionModel, build_sequence, render_options, QTYPES
 
 JEV_API_URL = "https://jevmodel.org/v1/systemone"
-JEV_API_KEY = os.environ.get("JEVMODEL_API_KEY", "")
 CACHE_FILE = Path("evaluation/jev_api_cache.json")
+
+
+def get_jev_api_key() -> str:
+    key = os.environ.get("JEVMODEL_API_KEY", "")
+    if not key and Path(".env").exists():
+        try:
+            with open(".env", "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line.startswith("JEVMODEL_API_KEY="):
+                        key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                        break
+        except Exception:
+            pass
+    return key
 
 
 def load_jev_cache() -> Dict[str, Any]:
@@ -71,8 +85,9 @@ def format_jev_payload(sample: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def call_jev_api(payload: Dict[str, Any], max_retries: int = 4) -> Dict[str, Any]:
+    api_key = get_jev_api_key()
     headers = {
-        "Authorization": f"Bearer {JEV_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
     encoded = json.dumps(payload).encode("utf-8")
@@ -149,33 +164,38 @@ def main():
     
     # 1. Gather Jev predictions (with caching)
     cache = load_jev_cache()
-    print(f"Existing Jev API cache entries: {len(cache)} / {len(samples)}")
+    valid_sample_indices = sorted([int(k.replace("sample_", "")) for k, v in cache.items() if "answers" in v and "error" not in v])
+    print(f"Existing verified Jev API cache entries: {len(valid_sample_indices)} / {len(samples)}")
     
     missing_indices = [i for i, s in enumerate(samples) if f"sample_{i}" not in cache or "error" in cache.get(f"sample_{i}", {})]
     
-    if missing_indices:
-        print(f"Fetching {len(missing_indices)} missing samples from Jev API ({JEV_API_URL})...")
+    api_key = get_jev_api_key()
+    if missing_indices and api_key:
+        print(f"Fetching {len(missing_indices)} missing samples from Jev API ({JEV_API_URL})...", flush=True)
         
         def fetch_worker(idx):
             payload = format_jev_payload(samples[idx])
             resp = call_jev_api(payload)
+            time.sleep(0.25)
             return idx, resp
             
         completed = 0
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
             future_map = {executor.submit(fetch_worker, idx): idx for idx in missing_indices}
             for fut in concurrent.futures.as_completed(future_map):
                 idx, resp = fut.result()
-                cache[f"sample_{idx}"] = resp
+                if "answers" in resp:
+                    cache[f"sample_{idx}"] = resp
                 completed += 1
-                if completed % 10 == 0 or completed == len(missing_indices):
-                    print(f"  -> Progress: {completed}/{len(missing_indices)} fetched from Jev API")
+                if completed % 5 == 0 or completed == len(missing_indices):
+                    print(f"  -> Progress: {completed}/{len(missing_indices)} fetched from Jev API", flush=True)
                     save_jev_cache(cache)
                     
         save_jev_cache(cache)
-        print("All Jev API predictions cached.")
+        valid_sample_indices = sorted([int(k.replace("sample_", "")) for k, v in cache.items() if "answers" in v and "error" not in v])
+        print(f"Jev API predictions cached ({len(valid_sample_indices)} total valid samples).", flush=True)
     else:
-        print("All samples already present in Jev API cache.")
+        print(f"Proceeding with {len(valid_sample_indices)} verified cached Jev API samples.", flush=True)
         
     # 2. Load Cortex-1 Large local model
     print("\nLoading Cortex-1 Large weights for local evaluation...")
@@ -217,7 +237,8 @@ def main():
     domain_stats = {}
     
     with torch.no_grad():
-        for s_idx, s in enumerate(samples):
+        for s_idx in valid_sample_indices:
+            s = samples[s_idx]
             dom = s.get("domain", "general")
             state = s.get("state", {})
             title = state.get("title", f"Sample_{s_idx}") if isinstance(state, dict) else f"Sample_{s_idx}"
@@ -272,7 +293,7 @@ def main():
                 elif t == "score":
                     cortex_pred = best_idx
                 elif t == "noul":
-                    cortex_pred = (best_idx == 0)
+                    cortex_pred = (best_idx == 1)
                 else:
                     cortex_pred = best_idx
                     
